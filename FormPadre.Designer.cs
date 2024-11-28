@@ -455,7 +455,6 @@
 
         private System.Windows.Forms.Panel pnlTitulo;
         private System.Windows.Forms.Panel pnlMenuVertical;
-        private System.Windows.Forms.Panel pnlContenedor;
         private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.PictureBox btnMinimized;
         private System.Windows.Forms.PictureBox btnMaximizar;
@@ -480,5 +479,6 @@
         private System.Windows.Forms.Button btnLlamadas;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox7;
+        public System.Windows.Forms.Panel pnlContenedor;
     }
 }

@@ -35,8 +35,8 @@
             this.btnFinalizarLlamada = new System.Windows.Forms.Button();
             this.btnLlamadaInterrumpida = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnReiniciar = new System.Windows.Forms.Button();
             this.lblLlamada = new System.Windows.Forms.Label();
+            this.btnReiniciar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,6 +44,11 @@
             // 
             this.cmbAgentes.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbAgentes.FormattingEnabled = true;
+            this.cmbAgentes.Items.AddRange(new object[] {
+            "Agente 1",
+            "Agente 2",
+            "Agente 3",
+            "Agente 4"});
             this.cmbAgentes.Location = new System.Drawing.Point(326, 79);
             this.cmbAgentes.Name = "cmbAgentes";
             this.cmbAgentes.Size = new System.Drawing.Size(256, 25);
@@ -122,6 +127,17 @@
             this.panel1.Size = new System.Drawing.Size(950, 127);
             this.panel1.TabIndex = 6;
             // 
+            // lblLlamada
+            // 
+            this.lblLlamada.AutoSize = true;
+            this.lblLlamada.Font = new System.Drawing.Font("Century Gothic", 25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLlamada.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblLlamada.Location = new System.Drawing.Point(12, 9);
+            this.lblLlamada.Name = "lblLlamada";
+            this.lblLlamada.Size = new System.Drawing.Size(430, 40);
+            this.lblLlamada.TabIndex = 2;
+            this.lblLlamada.Text = "ATENCIÓN DE LLAMADAS";
+            // 
             // btnReiniciar
             // 
             this.btnReiniciar.BackColor = System.Drawing.Color.PaleTurquoise;
@@ -135,17 +151,6 @@
             this.btnReiniciar.Text = "Reiniciar";
             this.btnReiniciar.UseVisualStyleBackColor = false;
             this.btnReiniciar.Click += new System.EventHandler(this.btnReiniciar_Click);
-            // 
-            // lblLlamada
-            // 
-            this.lblLlamada.AutoSize = true;
-            this.lblLlamada.Font = new System.Drawing.Font("Century Gothic", 25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLlamada.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblLlamada.Location = new System.Drawing.Point(12, 9);
-            this.lblLlamada.Name = "lblLlamada";
-            this.lblLlamada.Size = new System.Drawing.Size(430, 40);
-            this.lblLlamada.TabIndex = 2;
-            this.lblLlamada.Text = "ATENCIÓN DE LLAMADAS";
             // 
             // FormAgentes
             // 

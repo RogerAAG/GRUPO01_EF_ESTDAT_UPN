@@ -56,11 +56,11 @@ namespace GRUPO01_EF_ESTDAT_UPN
         }
         private void btnInterrupciones_Click(object sender, EventArgs e)
         {
-            // Datos simulados para la llamada interrumpida
-            string llamadaInterrumpida = "Teléfono: xxxxxxxxx, Cliente: xxxxx xxxxxxx";
+            string llamada = "Datos de la llamada"; // Proporciona los datos necesarios aquí
+            FormInterrupciones formInterrupciones = new FormInterrupciones(llamada);
 
-            // Abrir FormInterrupciones con los datos de la llamada
-            AbrirFormHijo(new FormInterrupciones(llamadaInterrumpida));
+            formInterrupciones.Owner = this;
+            AbrirFormHijo(formInterrupciones);
         }
         private void btnAgentes_Click(object sender, EventArgs e)
         {

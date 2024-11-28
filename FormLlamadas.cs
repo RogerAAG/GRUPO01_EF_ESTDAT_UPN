@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using static GRUPO01_EF_ESTDAT_UPN.Nodo;
 
 namespace GRUPO01_EF_ESTDAT_UPN
@@ -17,6 +18,7 @@ namespace GRUPO01_EF_ESTDAT_UPN
         ColaLlamadas objColaEmpresa;
         private ListaUsuario listaUsuarios;
         private FormPadre formPadre;
+        
         public NodoColaLlamadas UltimaLlamadaAtendida { get; private set; } // Nueva propiedad
         internal FormLlamadas(ListaUsuario listaUsuarios, FormPadre formPadre)
         {
@@ -143,6 +145,7 @@ namespace GRUPO01_EF_ESTDAT_UPN
             int cantidadEmpresa = objColaEmpresa.ObtenerLlamadas().Count;
 
             lblCantidadLlamada.Text = $"Llamadas en cola: General ({cantidadGeneral}), Empresarial ({cantidadEmpresa})";
+
         }
         private void btnSimular_Click(object sender, EventArgs e)
         {
@@ -180,5 +183,6 @@ namespace GRUPO01_EF_ESTDAT_UPN
         {
 
         }
+      
     }
 }

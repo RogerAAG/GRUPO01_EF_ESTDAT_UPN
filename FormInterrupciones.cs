@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,7 +29,15 @@ namespace GRUPO01_EF_ESTDAT_UPN
                 if (datos.Length == 4)
                 {
                     DateTime fecha;
-                    Pila.ActualizarDataGrid();
+                    if (DateTime.TryParseExact(datos[3], "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out fecha))
+                    {
+                        Pila.Push(datos[0], datos[1], datos[2], fecha);
+                        Pila.ActualizarDataGrid();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid date format.");
+                    }
                 }
             }
         }
@@ -49,10 +58,15 @@ namespace GRUPO01_EF_ESTDAT_UPN
         public void btnDevolverLlamada_Click(object sender, EventArgs e)
         {
             var llamada = Pila.Pop();
+            FormPadre padre = this.Owner as FormPadre;
+
             if (llamada != null)
             {
                 MessageBox.Show($"Llamada eliminada:\nTeléfono: {llamada.Telefono}\nCliente: {llamada.Cliente}");
-                
+                List<string> agentes = new List<string>(); // Crear una lista de agentes
+                FormAgentes formAgentes = new FormAgentes(agentes, llamada.Telefono, padre); // Pasar los argumentos requeridos
+
+                formAgentes.Show();
             }
             else
             {

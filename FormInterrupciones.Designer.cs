@@ -51,7 +51,7 @@
             this.lblLlamada.AutoSize = true;
             this.lblLlamada.Font = new System.Drawing.Font("Century Gothic", 25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLlamada.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblLlamada.Location = new System.Drawing.Point(228, 45);
+            this.lblLlamada.Location = new System.Drawing.Point(228, 41);
             this.lblLlamada.Name = "lblLlamada";
             this.lblLlamada.Size = new System.Drawing.Size(461, 40);
             this.lblLlamada.TabIndex = 1;
@@ -71,7 +71,7 @@
             // 
             this.btnDevolverLlamada.BackColor = System.Drawing.Color.PaleTurquoise;
             this.btnDevolverLlamada.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDevolverLlamada.Location = new System.Drawing.Point(339, 531);
+            this.btnDevolverLlamada.Location = new System.Drawing.Point(342, 538);
             this.btnDevolverLlamada.Name = "btnDevolverLlamada";
             this.btnDevolverLlamada.Size = new System.Drawing.Size(237, 59);
             this.btnDevolverLlamada.TabIndex = 6;
@@ -83,7 +83,7 @@
             // 
             this.btnListar.BackColor = System.Drawing.Color.PaleTurquoise;
             this.btnListar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnListar.Location = new System.Drawing.Point(274, 162);
+            this.btnListar.Location = new System.Drawing.Point(265, 152);
             this.btnListar.Name = "btnListar";
             this.btnListar.Size = new System.Drawing.Size(151, 39);
             this.btnListar.TabIndex = 7;
@@ -95,7 +95,7 @@
             // 
             this.btnVaciar.BackColor = System.Drawing.Color.PaleTurquoise;
             this.btnVaciar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVaciar.Location = new System.Drawing.Point(515, 162);
+            this.btnVaciar.Location = new System.Drawing.Point(519, 152);
             this.btnVaciar.Name = "btnVaciar";
             this.btnVaciar.Size = new System.Drawing.Size(151, 39);
             this.btnVaciar.TabIndex = 8;

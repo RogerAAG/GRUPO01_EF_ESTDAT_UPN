@@ -70,6 +70,7 @@ namespace GRUPO01_EF_ESTDAT_UPN
                         formPadre.formulariosAbiertos[nameof(FormInterrupciones)].IsDisposed)
                     {
                         var formInterrupciones = new FormInterrupciones(string.Empty);
+                        formInterrupciones.Owner = formPadre; // Set the Owner property
                         formPadre.AbrirFormHijo(formInterrupciones);
                     }
 

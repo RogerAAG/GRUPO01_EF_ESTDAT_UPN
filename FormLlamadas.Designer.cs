@@ -193,7 +193,7 @@
             this.btnAgregarLlamada.FlatAppearance.BorderSize = 0;
             this.btnAgregarLlamada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarLlamada.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarLlamada.Location = new System.Drawing.Point(690, 79);
+            this.btnAgregarLlamada.Location = new System.Drawing.Point(696, 79);
             this.btnAgregarLlamada.Name = "btnAgregarLlamada";
             this.btnAgregarLlamada.Size = new System.Drawing.Size(195, 37);
             this.btnAgregarLlamada.TabIndex = 4;
@@ -226,7 +226,7 @@
             // 
             // pnlGeneral
             // 
-            this.pnlGeneral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(42)))), ((int)(((byte)(51)))));
+            this.pnlGeneral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(51)))), ((int)(((byte)(60)))));
             this.pnlGeneral.Controls.Add(this.label5);
             this.pnlGeneral.Controls.Add(this.dgvGeneral);
             this.pnlGeneral.Dock = System.Windows.Forms.DockStyle.Left;
@@ -259,7 +259,7 @@
             // 
             // pnlEmpresa
             // 
-            this.pnlEmpresa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(42)))), ((int)(((byte)(51)))));
+            this.pnlEmpresa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(51)))), ((int)(((byte)(60)))));
             this.pnlEmpresa.Controls.Add(this.label6);
             this.pnlEmpresa.Controls.Add(this.dgvEmpresa);
             this.pnlEmpresa.Dock = System.Windows.Forms.DockStyle.Fill;

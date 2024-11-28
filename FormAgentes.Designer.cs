@@ -37,6 +37,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblLlamada = new System.Windows.Forms.Label();
             this.btnReiniciar = new System.Windows.Forms.Button();
+            this.lblLlamadaInfo = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +50,7 @@
             "Agente 2",
             "Agente 3",
             "Agente 4"});
-            this.cmbAgentes.Location = new System.Drawing.Point(326, 79);
+            this.cmbAgentes.Location = new System.Drawing.Point(51, 74);
             this.cmbAgentes.Name = "cmbAgentes";
             this.cmbAgentes.Size = new System.Drawing.Size(256, 25);
             this.cmbAgentes.TabIndex = 0;
@@ -119,6 +120,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(42)))), ((int)(((byte)(51)))));
+            this.panel1.Controls.Add(this.lblLlamadaInfo);
             this.panel1.Controls.Add(this.lblLlamada);
             this.panel1.Controls.Add(this.cmbAgentes);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -151,6 +153,17 @@
             this.btnReiniciar.Text = "Reiniciar";
             this.btnReiniciar.UseVisualStyleBackColor = false;
             this.btnReiniciar.Click += new System.EventHandler(this.btnReiniciar_Click);
+            // 
+            // lblLlamadaInfo
+            // 
+            this.lblLlamadaInfo.AutoSize = true;
+            this.lblLlamadaInfo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLlamadaInfo.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblLlamadaInfo.Location = new System.Drawing.Point(334, 78);
+            this.lblLlamadaInfo.Name = "lblLlamadaInfo";
+            this.lblLlamadaInfo.Size = new System.Drawing.Size(57, 21);
+            this.lblLlamadaInfo.TabIndex = 3;
+            this.lblLlamadaInfo.Text = "label1";
             // 
             // FormAgentes
             // 
@@ -186,5 +199,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnReiniciar;
         private System.Windows.Forms.Label lblLlamada;
+        private System.Windows.Forms.Label lblLlamadaInfo;
     }
 }

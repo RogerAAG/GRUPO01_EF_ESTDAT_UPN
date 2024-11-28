@@ -15,8 +15,8 @@ namespace GRUPO01_EF_ESTDAT_UPN
 {
     public partial class FormUsuarios : Form
     {
-        private ListaUsuario listaUsuarios = new ListaUsuario();
-        private NodoUsuario nodoActual;
+        private ListaUsuario listaUsuarios = new ListaUsuario();//INSTANCIA DE LA CLASE LISTAUSUARIO
+        private NodoUsuario nodoActual;//NODO ACTUAL
         public FormUsuarios()
         {
             InitializeComponent();
@@ -28,32 +28,32 @@ namespace GRUPO01_EF_ESTDAT_UPN
                 string.IsNullOrWhiteSpace(txtDNIuser.Text) ||
                 string.IsNullOrWhiteSpace(txtTelefonoUser.Text) ||
                 string.IsNullOrWhiteSpace(txtPasswordUser.Text) ||
-                string.IsNullOrWhiteSpace(cmbCargo.Text))
+                string.IsNullOrWhiteSpace(cmbCargo.Text))//VALIDACION DE CAMPOS VACIOS
             {
                 MessageBox.Show("Todos los campos son obligatorios.");
                 return;
             }
             listaUsuarios.AgregarUsuario(txtNombreUser.Text, txtDNIuser.Text, txtTelefonoUser.Text, cmbCargo.Text, txtPasswordUser.Text);
             MessageBox.Show("Usuario agregado correctamente.");
-            ActualizarDataGrid();
+            ActualizarDataGrid();//ACTUALIZAR DATAGRID
             txtNombreUser.Text = "";
             txtTelefonoUser.Text = "";
             txtDNIuser.Text = "";
             cmbCargo.Text = "";
             txtPasswordUser.Text = "";
-            txtNombreUser.Focus();
+            txtNombreUser.Focus();//FOCO EN EL CAMPO NOMBRE
         }
         //Evento Editar Usuario
         private void btnEditarUser_Click(object sender, EventArgs e)
         {
-            if (nodoActual != null)
+            if (nodoActual != null)//VALIDACION DE NODO ACTUAL
             {
                 nodoActual.Nombre = txtNombreUser.Text;
                 nodoActual.Telefono = txtTelefonoUser.Text;
                 nodoActual.Cargo = cmbCargo.Text;
                 nodoActual.Contraseña = txtPasswordUser.Text;
                 MessageBox.Show("Usuario editado correctamente.");
-                ActualizarDataGrid();
+                ActualizarDataGrid();//ACTUALIZAR DATAGRID
             }
             else
             {
@@ -84,9 +84,9 @@ namespace GRUPO01_EF_ESTDAT_UPN
         }
         private void ActualizarDataGrid()
         {
-            dgvListaUsuarios.DataSource = listaUsuarios.ObtenerUsuarios()
-            .Select(u => new { u.ID, u.Nombre, u.DNI, u.Telefono, u.Cargo })
-            .ToList();
+            dgvListaUsuarios.DataSource = listaUsuarios.ObtenerUsuarios()//ACTUALIZAR DATAGRID
+            .Select(u => new { u.ID, u.Nombre, u.DNI, u.Telefono, u.Cargo })//SELECCIONAR CAMPOS
+            .ToList();//LISTA DE USUARIOS
         }
         private void MostrarDatosUsuario(NodoUsuario usuario)
         {
@@ -99,7 +99,7 @@ namespace GRUPO01_EF_ESTDAT_UPN
         //BOTON NAVEGAR ATRAS NODO
         private void btnAnterior_Click(object sender, EventArgs e)
         {
-            if (nodoActual != null && nodoActual.ant != null)
+            if (nodoActual != null && nodoActual.ant != null)//VALIDACION DE NODO ANTERIOR
             {
                 nodoActual = nodoActual.ant;
                 MostrarDatosUsuario(nodoActual);
@@ -112,7 +112,7 @@ namespace GRUPO01_EF_ESTDAT_UPN
         //BOTON NAVEGAR SIGUIENTE NODO
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
-            if (nodoActual != null && nodoActual.sig != null)
+            if (nodoActual != null && nodoActual.sig != null)//VALIDACION DE NODO SIGUIENTE
             {
                 nodoActual = nodoActual.sig;
                 MostrarDatosUsuario(nodoActual);
@@ -125,7 +125,7 @@ namespace GRUPO01_EF_ESTDAT_UPN
         //GENERAR DATOS ALEATORIOS PARA LLENAR FORMULARIO
         private void btnGenerarUsuario_Click(object sender, EventArgs e)
         {
-            Random rnd = new Random();
+            Random rnd = new Random();//GENERAR NUMEROS ALEATORIOS
 
             // Generar nombre aleatorio
             string[] nombres = { "Carlos", "María", "Ana", "José", "Luis", "Lucía", "Jorge", "Diana","Roger","Leonel","Yessica","Jonathan","Alex" };

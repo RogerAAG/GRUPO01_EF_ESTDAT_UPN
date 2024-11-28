@@ -20,7 +20,7 @@ namespace GRUPO01_EF_ESTDAT_UPN
         }
 
 
-        //Abrir formulario Hijo en panel.
+        //CONFIGURACION PARA APERTURA DE FORMULARIOS EN PANEL CONTENEDOR
         public Dictionary<string, Form> formulariosAbiertos = new Dictionary<string, Form>();
         public void AbrirFormHijo(Form formulario)
         {
@@ -41,18 +41,18 @@ namespace GRUPO01_EF_ESTDAT_UPN
             fh.Dock = DockStyle.Fill;
             this.pnlContenedor.Controls.Add(fh);
             this.pnlContenedor.Tag = fh;
-            fh.Show();
+            fh.Show();//Muestra el formulario hijo
         }
         //CONFIGURACION PARA APERTURA DE FORMULARIOS EN PANEL CONTENEDOR
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
-            AbrirFormHijo(new FormUsuarios());
+            AbrirFormHijo(new FormUsuarios());//Carga el formulario de usuarios
         }
         private void btnLlamadas_Click(object sender, EventArgs e)
         {
             ListaUsuario listaUsuarios = new ListaUsuario();
             FormLlamadas formLlamadas = new FormLlamadas(listaUsuarios, this); // Pasa FormPadre
-            AbrirFormHijo(formLlamadas);
+            AbrirFormHijo(formLlamadas);//Carga el formulario de llamadas
         }
         private void btnInterrupciones_Click(object sender, EventArgs e)
         {
@@ -60,18 +60,18 @@ namespace GRUPO01_EF_ESTDAT_UPN
             FormInterrupciones formInterrupciones = new FormInterrupciones(llamada);
 
             formInterrupciones.Owner = this;
-            AbrirFormHijo(formInterrupciones);
+            AbrirFormHijo(formInterrupciones);//Carga el formulario de interrupciones
         }
         private void btnAgentes_Click(object sender, EventArgs e)
         {
             List<string> agentes = new List<string> { "Agente 1", "Agente 2", "Agente 3" }; // Ejemplo
             string llamadaInfo = "Llamada simulada"; // Información de prueba
             FormAgentes formAgentes = new FormAgentes(agentes, llamadaInfo, this); // Pasa FormPadre
-            AbrirFormHijo(formAgentes);
+            AbrirFormHijo(formAgentes);//Carga el formulario de agentes
         }
         private void btnTransferencias_Click(object sender, EventArgs e)
         {
-            AbrirFormHijo(new FormTransferencias()); // Pasa el tipo del formulario
+            AbrirFormHijo(new FormTransferencias());//Carga el formulario de transferencias
         }
 
         //ASPECTO DEL FORMULARIO
@@ -92,17 +92,17 @@ namespace GRUPO01_EF_ESTDAT_UPN
         }
         private void btnMinimized_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            this.WindowState = FormWindowState.Minimized;//Minimiza la ventana
         }
         private void btnMaximizar_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Maximized;
+            this.WindowState = FormWindowState.Maximized;//Maximiza la ventana
             btnMaximizar.Visible = false;
             btnRestaurar.Visible = true;
         }
         private void btnRestaurar_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Normal;
+            this.WindowState = FormWindowState.Normal;//Restaura la ventana
             btnRestaurar.Visible = false;
             btnMaximizar.Visible = true;
         }
@@ -113,7 +113,7 @@ namespace GRUPO01_EF_ESTDAT_UPN
         }
         private void FormPadre_Load(object sender, EventArgs e)
         {
-            pictureBox7_Click(null, e);
+            pictureBox7_Click(null, e);//Carga el formulario de inicio
         }
         private void FormPadre_SizeChanged(object sender, EventArgs e)
         {
@@ -121,7 +121,7 @@ namespace GRUPO01_EF_ESTDAT_UPN
         }
         private void pictureBox7_Click(object sender, EventArgs e)
         {
-            AbrirFormHijo(new Inicio()); // Pasa el tipo del formulario
+            AbrirFormHijo(new Inicio());//Carga el formulario de inicio
         }
         private void btnCerrarSes_Click(object sender, EventArgs e)
         {
@@ -130,7 +130,7 @@ namespace GRUPO01_EF_ESTDAT_UPN
             {
                 this.Close();
                 FormLogin loginForm = new FormLogin();
-                loginForm.Show();
+                loginForm.Show();//Carga el formulario de inicio de sesión
             }
         }
         private void pictureBox7_MouseClick(object sender, MouseEventArgs e)

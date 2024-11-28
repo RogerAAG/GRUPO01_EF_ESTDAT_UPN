@@ -13,10 +13,11 @@ namespace GRUPO01_EF_ESTDAT_UPN
 {
     public partial class FormAgentes : Form
     {
-        private ArbolAtencion arbol;
-        private NodoArbol nodoActual;
+        private ArbolAtencion arbol;// Árbol de preguntas
+        private NodoArbol nodoActual;// Nodo actual en el árbol
         private string llamadaEnCurso; // Datos de la llamada actual
-        private FormPadre formPadre;
+        private FormPadre formPadre;// Referencia al formulario padre
+       
         public FormAgentes(List<string> agentes, string llamada, FormPadre formPadre)
         {
             InitializeComponent();
@@ -24,31 +25,28 @@ namespace GRUPO01_EF_ESTDAT_UPN
             nodoActual = arbol.Raiz;
             llamadaEnCurso = llamada;
             this.formPadre = formPadre; // Guardar la referencia del formulario padre
-                                        // Lógica existente
-
             // Llenar ComboBox con los agentes disponibles
             cmbAgentes.DataSource = agentes;
-
             // Mostrar la primera pregunta
             lblPregunta.Text = nodoActual.Pregunta;
+            // Mostrar información de la llamada
+            lblLlamadaInfo.Text = llamadaEnCurso;
         }
         private void btnSi_Click(object sender, EventArgs e)
         {
-            if (nodoActual.Si != null)
-            {
-                nodoActual = nodoActual.Si;
-                lblPregunta.Text = nodoActual.Pregunta;
-            }
-            else
-            {
-                MessageBox.Show("Fin del árbol de atención. No hay más preguntas.");
-            }
+            AvanzarNodo(nodoActual.Si);
         }
+
         private void btnNo_Click(object sender, EventArgs e)
         {
-            if (nodoActual.No != null)
+            AvanzarNodo(nodoActual.No);
+        }
+
+        private void AvanzarNodo(NodoArbol siguienteNodo)
+        {
+            if (siguienteNodo != null)
             {
-                nodoActual = nodoActual.No;
+                nodoActual = siguienteNodo;
                 lblPregunta.Text = nodoActual.Pregunta;
             }
             else

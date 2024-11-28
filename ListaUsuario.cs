@@ -23,17 +23,17 @@ namespace GRUPO01_EF_ESTDAT_UPN
                 Telefono = telefono,
                 Cargo = cargo,
                 Contraseña = contraseña,
-                sig = null,
-                ant = fin
+                sig = null,// Apuntar al siguiente nodo
+                ant = fin// Apuntar al último nodo
             };
 
             if (ini == null)
             {
-                ini = nuevoNodo;
+                ini = nuevoNodo;// Si la lista está vacía, el nuevo nodo es el primero
             }
             else
             {
-                fin.sig = nuevoNodo;
+                fin.sig = nuevoNodo;// Si no, el último nodo apunta al nuevo nodo
             }
             fin = nuevoNodo;
         }
@@ -41,10 +41,10 @@ namespace GRUPO01_EF_ESTDAT_UPN
         public NodoUsuario BuscarUsuario(string dni)
         {
             NodoUsuario actual = ini;
-            while (actual != null)
+            while (actual != null)//Mientras el nodo actual no sea nulo
             {
                 if (actual.DNI == dni) return actual;
-                actual = actual.sig;
+                actual = actual.sig;// Avanzar al siguiente nodo
             }
             return null;
         }
@@ -53,45 +53,45 @@ namespace GRUPO01_EF_ESTDAT_UPN
         {
             NodoUsuario actual = ini;
 
-            while (actual != null)
+            while (actual != null)//Mientras el nodo actual no sea nulo
             {
-                if (actual.DNI == dni)
+                if (actual.DNI == dni)//Si el DNI del nodo actual es igual al DNI buscado
                 {
-                    if (actual.ant != null)
+                    if (actual.ant != null)//Si el nodo anterior no es nulo
                     {
-                        actual.ant.sig = actual.sig;
+                        actual.ant.sig = actual.sig;//El nodo siguiente del anterior nodo es el siguiente del nodo actual
                     }
                     else
                     {
-                        ini = actual.sig;
+                        ini = actual.sig;//El nodo siguiente es el primero
                     }
 
-                    if (actual.sig != null)
+                    if (actual.sig != null)//Si el nodo siguiente no es nulo
                     {
-                        actual.sig.ant = actual.ant;
+                        actual.sig.ant = actual.ant;//El nodo anterior del siguiente nodo es el anterior del nodo actual
                     }
                     else
                     {
-                        ini = actual.ant;
+                        ini = actual.ant;//El nodo anterior es el último
                     }
 
                     return;
                 }
-                actual = actual.sig;
+                actual = actual.sig;//Avanzar al siguiente nodo
             }
         }
         //recursividad
         public List<NodoUsuario> ObtenerUsuarios()
         {
-            List<NodoUsuario> usuarios = new List<NodoUsuario>();
-            NodoUsuario actual = ini;
+            List<NodoUsuario> usuarios = new List<NodoUsuario>();//Lista de usuarios
+            NodoUsuario actual = ini;//Nodo actual es el primero
 
-            while (actual != null)
+            while (actual != null)//Mientras el nodo actual no sea nulo
             {
-                usuarios.Add(actual);
-                actual = actual.sig;
+                usuarios.Add(actual);//Agregar el nodo actual a la lista
+                actual = actual.sig;//Avanzar al siguiente nodo
             }
-            return usuarios;
+            return usuarios;//Retornar la lista de usuarios
         }
     }
 }

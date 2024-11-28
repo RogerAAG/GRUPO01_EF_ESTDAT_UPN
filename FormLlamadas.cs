@@ -14,18 +14,18 @@ namespace GRUPO01_EF_ESTDAT_UPN
 {
     public partial class FormLlamadas : Form
     {
-        ColaLlamadas objColaGeneral;
-        ColaLlamadas objColaEmpresa;
-        private ListaUsuario listaUsuarios;
-        private FormPadre formPadre;
-        
-        public NodoColaLlamadas UltimaLlamadaAtendida { get; private set; } // Nueva propiedad
-        internal FormLlamadas(ListaUsuario listaUsuarios, FormPadre formPadre)
+        ColaLlamadas objColaGeneral;//Cola de llamadas generales
+        ColaLlamadas objColaEmpresa;//Cola de llamadas empresariales
+        private ListaUsuario listaUsuarios;// Referencia a la lista de usuarios
+        private FormPadre formPadre;// Referencia al formulario padre
+
+        public NodoColaLlamadas UltimaLlamadaAtendida { get; private set; } // Propiedad para guardar la última llamada atendida
+        internal FormLlamadas(ListaUsuario listaUsuarios, FormPadre formPadre)//Constructor
         {
-            InitializeComponent();
-            objColaGeneral = new ColaLlamadas();
-            objColaEmpresa = new ColaLlamadas();
-            this.listaUsuarios = listaUsuarios;
+            InitializeComponent();//Inicializa los componentes
+            objColaGeneral = new ColaLlamadas();//Instancia de la cola de llamadas generales
+            objColaEmpresa = new ColaLlamadas();//Instancia de la cola de llamadas empresariales
+            this.listaUsuarios = listaUsuarios;// Guardar la referencia de la lista de usuarios
             this.formPadre = formPadre; // Guardar la referencia del formulario padre
             ActualizarCantidadLlamadas(); // Mostrar las cantidades iniciales
         }
@@ -33,10 +33,10 @@ namespace GRUPO01_EF_ESTDAT_UPN
         {
             if (string.IsNullOrWhiteSpace(txtTelefono.Text) ||
                 string.IsNullOrWhiteSpace(txtCliente.Text) ||
-                string.IsNullOrWhiteSpace(cmbTipoCliente.Text))
+                string.IsNullOrWhiteSpace(cmbTipoCliente.Text))//Validar campos vacíos
             {
                 MessageBox.Show("Todos los campos son obligatorios.");
-                return;
+                return;//Salir del método
             }
 
             string Telefono_Cliente = txtTelefono.Text;
@@ -45,34 +45,34 @@ namespace GRUPO01_EF_ESTDAT_UPN
 
             if (Tipo_Cliente == "Cliente General")
             {
-                objColaGeneral.AgregarLlamada(Telefono_Cliente, Cliente, Tipo_Cliente, DateTime.Now);
+                objColaGeneral.AgregarLlamada(Telefono_Cliente, Cliente, Tipo_Cliente, DateTime.Now);//Agregar llamada a la cola general
             }
             else if (Tipo_Cliente == "Empresarial")
             {
-                objColaEmpresa.AgregarLlamada(Telefono_Cliente, Cliente, Tipo_Cliente, DateTime.Now);
+                objColaEmpresa.AgregarLlamada(Telefono_Cliente, Cliente, Tipo_Cliente, DateTime.Now);//Agregar llamada a la cola empresarial
             }
             else
             {
                 MessageBox.Show("El tipo de cliente seleccionado no es válido.");
-                return;
+                return;//Salir del método
             }
 
             MessageBox.Show("Llamada agregada correctamente.");
-            ActualizarDataGrid();
-            ActualizarCantidadLlamadas();
-            LimpiarCampos();
+            ActualizarDataGrid();//Actualizar los DataGridView
+            ActualizarCantidadLlamadas();//Actualizar la cantidad de llamadas
+            LimpiarCampos();//Limpiar los campos
         }
         private void btnAtenderLlamada_Click(object sender, EventArgs e)
         {
-            NodoColaLlamadas llamadaAtendida = null;
+            NodoColaLlamadas llamadaAtendida = null;//Inicializar la llamada atendida en nulo
 
             if (!objColaEmpresa.EstaVacia())
             {
-                llamadaAtendida = objColaEmpresa.AtenderLlamada();
+                llamadaAtendida = objColaEmpresa.AtenderLlamada();//Atender llamada de la cola empresarial
             }
             else if (!objColaGeneral.EstaVacia())
             {
-                llamadaAtendida = objColaGeneral.AtenderLlamada();
+                llamadaAtendida = objColaGeneral.AtenderLlamada();//Atender llamada cola General
             }
 
             if (llamadaAtendida != null)
@@ -80,15 +80,15 @@ namespace GRUPO01_EF_ESTDAT_UPN
                 UltimaLlamadaAtendida = llamadaAtendida; // Guardar la última llamada atendida
 
                 MessageBox.Show($"Atendiendo llamada de: {llamadaAtendida.Cliente}, Teléfono: {llamadaAtendida.Telefono_Cliente}");
-                ActualizarDataGrid();
-                ActualizarCantidadLlamadas();
+                ActualizarDataGrid();//Actualizar los DataGridView
+                ActualizarCantidadLlamadas();//Actualizar la cantidad de llamadas
 
                 // Enviar llamada al FormAgentes
-                List<string> agentes = listaUsuarios.ObtenerUsuarios()
-                    .Select(u => u.Nombre)
-                    .ToList();
-                string llamadaInfo = $"Teléfono: {llamadaAtendida.Telefono_Cliente}, Cliente: {llamadaAtendida.Cliente}";
-                FormAgentes formAgentes = new FormAgentes(agentes, llamadaInfo, formPadre);
+                List<string> agentes = listaUsuarios.ObtenerUsuarios()//Obtener la lista de agentes
+                    .Select(u => u.Nombre)//Seleccionar solo los nombres
+                    .ToList();//Convertir a lista
+                string llamadaInfo = $"Teléfono: {llamadaAtendida.Telefono_Cliente}, Cliente: {llamadaAtendida.Cliente}";//Información de la llamada
+                FormAgentes formAgentes = new FormAgentes(agentes, llamadaInfo, formPadre);//Instancia del formulario de agentes
                 formPadre.AbrirFormHijo(formAgentes); // Abrir en el pnlContenedor
             }
             else
@@ -99,8 +99,8 @@ namespace GRUPO01_EF_ESTDAT_UPN
         }
         private void btnVaciar_Click(object sender, EventArgs e)
         {
-            objColaGeneral.Vaciar();
-            objColaEmpresa.Vaciar();
+            objColaGeneral.Vaciar();//Vaciar la cola general
+            objColaEmpresa.Vaciar();//Vaciar la cola empresarial
             MessageBox.Show("Todas las llamadas han sido eliminadas.");
             ActualizarDataGrid();
             ActualizarCantidadLlamadas();
@@ -110,7 +110,7 @@ namespace GRUPO01_EF_ESTDAT_UPN
         {
             // Actualizar DataGridView para Cliente General
             dgvGeneral.DataSource = null; // Limpia el contenido previo
-            dgvGeneral.DataSource = objColaGeneral.ObtenerLlamadas()
+            dgvGeneral.DataSource = objColaGeneral.ObtenerLlamadas()//Obtener las llamadas de la cola general
                 .Select(l => new
                 {
                     Telefono = l.Telefono_Cliente,
@@ -118,11 +118,11 @@ namespace GRUPO01_EF_ESTDAT_UPN
                     TipoCliente = l.Tipo_Cliente,
                     HoraLlamada = l.HoraLlamada.ToString("HH:mm:ss")
                 })
-                .ToList();
+                .ToList();//Convertir a lista
 
             // Actualizar DataGridView para Empresa
             dgvEmpresa.DataSource = null; // Limpia el contenido previo
-            dgvEmpresa.DataSource = objColaEmpresa.ObtenerLlamadas()
+            dgvEmpresa.DataSource = objColaEmpresa.ObtenerLlamadas()//Obtener las llamadas de la cola empresarial
                 .Select(l => new
                 {
                     Telefono = l.Telefono_Cliente,
@@ -130,7 +130,7 @@ namespace GRUPO01_EF_ESTDAT_UPN
                     TipoCliente = l.Tipo_Cliente,
                     HoraLlamada = l.HoraLlamada.ToString("HH:mm:ss")
                 })
-                .ToList();
+                .ToList();//Convertir a lista
         }
         private void LimpiarCampos()
         {
@@ -141,15 +141,15 @@ namespace GRUPO01_EF_ESTDAT_UPN
         }
         private void ActualizarCantidadLlamadas()
         {
-            int cantidadGeneral = objColaGeneral.ObtenerLlamadas().Count;
-            int cantidadEmpresa = objColaEmpresa.ObtenerLlamadas().Count;
+            int cantidadGeneral = objColaGeneral.ObtenerLlamadas().Count;//Obtener la cantidad de llamadas en la cola general
+            int cantidadEmpresa = objColaEmpresa.ObtenerLlamadas().Count;//Obtener la cantidad de llamadas en la cola empresarial
 
             lblCantidadLlamada.Text = $"Llamadas en cola: General ({cantidadGeneral}), Empresarial ({cantidadEmpresa})";
 
         }
         private void btnSimular_Click(object sender, EventArgs e)
         {
-            Random rnd = new Random();
+            Random rnd = new Random();//Generador de números aleatorios
 
             // Seleccionar tipo de cliente
             int tipoClienteProbabilidad = rnd.Next(1, 101); // 1 a 100

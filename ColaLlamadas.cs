@@ -12,7 +12,7 @@ namespace GRUPO01_EF_ESTDAT_UPN
 {
     internal class ColaLlamadas
     {
-        public NodoColaLlamadas ini, fin;
+        public NodoColaLlamadas ini, fin;//Punteros para el inicio y fin de la cola
         //Constructor
         public ColaLlamadas()
         {
@@ -28,18 +28,18 @@ namespace GRUPO01_EF_ESTDAT_UPN
                 Cliente = Cliente,
                 Tipo_Cliente = Tipo_Cliente,
                 HoraLlamada = HoraLlamada,
-                sig = null
+                sig = null//El nuevo nodo es el último, por lo que no apunta a nadie
             };
 
-            if (ini == null)
+            if (ini == null)//Si la cola está vacía
             {
-                ini = nuevo;
-                fin = nuevo;
+                ini = nuevo;//El nuevo nodo es el primero
+                fin = nuevo;//El nuevo nodo es el último
             }
             else
             {
-                fin.sig = nuevo;
-                fin = nuevo;
+                fin.sig = nuevo;//El último nodo actual apunta al nuevo nodo
+                fin = nuevo;//El nuevo nodo es el último
             }
         }
         //ATENDER LLAMADAS
@@ -63,27 +63,27 @@ namespace GRUPO01_EF_ESTDAT_UPN
             // Retornar el nodo atendido
             return nodoAtendido;
         }
-        public void Vaciar()
+        public void Vaciar()//Vacia la cola
         {
-            ini = null;
-            fin = null;
+            ini = null;//El inicio apunta a null
+            fin = null;//El fin apunta a null
         }
-        public List<NodoColaLlamadas> ObtenerLlamadas()
+        public List<NodoColaLlamadas> ObtenerLlamadas()//Obtiene las llamadas de la cola
         {
-            List<NodoColaLlamadas> llamadas = new List<NodoColaLlamadas>();
-            NodoColaLlamadas actual = ini;
+            List<NodoColaLlamadas> llamadas = new List<NodoColaLlamadas>();//Lista de llamadas
+            NodoColaLlamadas actual = ini;//Nodo actual es el inicio
 
-            while (actual != null)
+            while (actual != null)//Mientras el nodo actual no sea null
             {
-                llamadas.Add(actual);
-                actual = actual.sig;
+                llamadas.Add(actual);//Agrega el nodo actual a la lista
+                actual = actual.sig;//El nodo actual apunta al siguiente
             }
 
-            return llamadas;
+            return llamadas;//Retorna la lista de llamadas
         }
-        public bool EstaVacia()
+        public bool EstaVacia()//Verifica si la cola está vacía
         {
-            return ini == null;
+            return ini == null;//Retorna true si el inicio es null
         }
     }
 }

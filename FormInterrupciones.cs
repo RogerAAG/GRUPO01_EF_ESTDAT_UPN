@@ -27,7 +27,7 @@ namespace GRUPO01_EF_ESTDAT_UPN
                 string[] datos = llamada.Split(',');
                 if (datos.Length == 4)
                 {
-                    Pila.Push(datos[0], datos[1], datos[2], DateTime.Parse(datos[3]));
+                    DateTime fecha;
                     Pila.ActualizarDataGrid();
                 }
             }

@@ -35,9 +35,11 @@
             this.btnFinalizarLlamada = new System.Windows.Forms.Button();
             this.btnLlamadaInterrumpida = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblLlamadaInfo = new System.Windows.Forms.Label();
             this.lblLlamada = new System.Windows.Forms.Label();
             this.btnReiniciar = new System.Windows.Forms.Button();
-            this.lblLlamadaInfo = new System.Windows.Forms.Label();
+            this.cmbServicios = new System.Windows.Forms.ComboBox();
+            this.btnSeleccionarServicio = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -129,6 +131,17 @@
             this.panel1.Size = new System.Drawing.Size(950, 127);
             this.panel1.TabIndex = 6;
             // 
+            // lblLlamadaInfo
+            // 
+            this.lblLlamadaInfo.AutoSize = true;
+            this.lblLlamadaInfo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLlamadaInfo.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblLlamadaInfo.Location = new System.Drawing.Point(334, 78);
+            this.lblLlamadaInfo.Name = "lblLlamadaInfo";
+            this.lblLlamadaInfo.Size = new System.Drawing.Size(57, 21);
+            this.lblLlamadaInfo.TabIndex = 3;
+            this.lblLlamadaInfo.Text = "label1";
+            // 
             // lblLlamada
             // 
             this.lblLlamada.AutoSize = true;
@@ -154,16 +167,31 @@
             this.btnReiniciar.UseVisualStyleBackColor = false;
             this.btnReiniciar.Click += new System.EventHandler(this.btnReiniciar_Click);
             // 
-            // lblLlamadaInfo
+            // cmbServicios
             // 
-            this.lblLlamadaInfo.AutoSize = true;
-            this.lblLlamadaInfo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLlamadaInfo.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblLlamadaInfo.Location = new System.Drawing.Point(334, 78);
-            this.lblLlamadaInfo.Name = "lblLlamadaInfo";
-            this.lblLlamadaInfo.Size = new System.Drawing.Size(57, 21);
-            this.lblLlamadaInfo.TabIndex = 3;
-            this.lblLlamadaInfo.Text = "label1";
+            this.cmbServicios.FormattingEnabled = true;
+            this.cmbServicios.Items.AddRange(new object[] {
+            "Servicio de internet",
+            "TV por Cable",
+            "Telefonía Fija"});
+            this.cmbServicios.Location = new System.Drawing.Point(360, 144);
+            this.cmbServicios.Name = "cmbServicios";
+            this.cmbServicios.Size = new System.Drawing.Size(197, 21);
+            this.cmbServicios.TabIndex = 8;
+            // 
+            // btnSeleccionarServicio
+            // 
+            this.btnSeleccionarServicio.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.btnSeleccionarServicio.FlatAppearance.BorderSize = 0;
+            this.btnSeleccionarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSeleccionarServicio.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSeleccionarServicio.Location = new System.Drawing.Point(563, 133);
+            this.btnSeleccionarServicio.Name = "btnSeleccionarServicio";
+            this.btnSeleccionarServicio.Size = new System.Drawing.Size(110, 36);
+            this.btnSeleccionarServicio.TabIndex = 9;
+            this.btnSeleccionarServicio.Text = "Seleccionar";
+            this.btnSeleccionarServicio.UseVisualStyleBackColor = false;
+            this.btnSeleccionarServicio.Click += new System.EventHandler(this.btnSeleccionarServicio_Click);
             // 
             // FormAgentes
             // 
@@ -171,6 +199,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(201)))), ((int)(((byte)(217)))));
             this.ClientSize = new System.Drawing.Size(950, 635);
+            this.Controls.Add(this.btnSeleccionarServicio);
+            this.Controls.Add(this.cmbServicios);
             this.Controls.Add(this.btnReiniciar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnLlamadaInterrumpida);
@@ -200,5 +230,7 @@
         private System.Windows.Forms.Button btnReiniciar;
         private System.Windows.Forms.Label lblLlamada;
         private System.Windows.Forms.Label lblLlamadaInfo;
+        private System.Windows.Forms.ComboBox cmbServicios;
+        private System.Windows.Forms.Button btnSeleccionarServicio;
     }
 }

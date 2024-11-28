@@ -48,6 +48,12 @@ namespace GRUPO01_EF_ESTDAT_UPN
             {
                 nodoActual = siguienteNodo;
                 lblPregunta.Text = nodoActual.Pregunta;
+                if (nodoActual.EsSolucion) // Considera agregar una propiedad EsSolucion
+                {
+                    MessageBox.Show(nodoActual.Pregunta);
+                    btnSi.Enabled = false;
+                    btnNo.Enabled = false;
+                }
             }
             else
             {
@@ -111,10 +117,30 @@ namespace GRUPO01_EF_ESTDAT_UPN
         }
         private void ActualizarInterfaz()
         {
-            var (texto, habilitarSi, habilitarNo) = arbol.ActualizarPregunta();
-            lblPregunta.Text = texto;
-            btnSi.Enabled = habilitarSi;
-            btnNo.Enabled = habilitarNo;
+            lblPregunta.Text = nodoActual.Pregunta;
+            btnSi.Enabled = nodoActual.Si != null;
+            btnNo.Enabled = nodoActual.No != null;
+        }
+
+        private void btnSeleccionarServicio_Click(object sender, EventArgs e)
+        {
+            var servicioSeleccionado = cmbServicios.SelectedItem?.ToString();  // Obtener el servicio seleccionado
+
+            if (string.IsNullOrEmpty(servicioSeleccionado))
+            {
+                MessageBox.Show("Por favor, seleccione un servicio.");
+                return;
+            }
+
+            arbol.SeleccionarServicio(servicioSeleccionado); // Seleccionar y construir el árbol
+            nodoActual = arbol.Raiz;                         // Inicia en la raíz
+            lblPregunta.Text = nodoActual.Pregunta;          // Mostrar la primera pregunta
+            ActualizarBotones();                             // Habilitar botones según el nodo
+        }
+        private void ActualizarBotones(bool habilitar = true)
+        {
+            btnSi.Enabled = habilitar && nodoActual?.Si != null;
+            btnNo.Enabled = habilitar && nodoActual?.No != null;
         }
     }
 }

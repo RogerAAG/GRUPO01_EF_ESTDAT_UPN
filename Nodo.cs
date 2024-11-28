@@ -37,20 +37,21 @@ namespace GRUPO01_EF_ESTDAT_UPN
             public string Cliente { get; set; }// Nombre del cliente
             public string TipoCliente { get; set; }// Tipo de cliente
             public DateTime HoraLlamada { get; set; }// Hora de la llamada
+            public string Servicio { get; set; }
             public NodoInterrupciones Siguiente { get; set; } // Apunta al siguiente nodo en la pila
         }
         //NODO ARBOL DE ATENCION
         public class NodoArbol
         {
-            public string Pregunta { get; set; }// Pregunta del nodo
-            public NodoArbol Si { get; set; }// Apunta al nodo si
-            public NodoArbol No { get; set; }// Apunta al nodo no
+            public string Pregunta { get; set; }
+            public NodoArbol Si { get; set; }
+            public NodoArbol No { get; set; }
+            public bool EsSolucion => Si == null && No == null; // Identifica si es nodo final
+            public NodoArbol Raiz { get; private set; }
 
             public NodoArbol(string pregunta)
             {
-                Pregunta = pregunta;// Inicializa la pregunta
-                Si = null;// Inicializa el nodo si
-                No = null;// Inicializa el nodo no
+                Pregunta = pregunta;
             }
         }
     }

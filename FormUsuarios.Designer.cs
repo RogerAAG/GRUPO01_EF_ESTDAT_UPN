@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUsuarios));
             this.btnAgregarUser = new System.Windows.Forms.Button();
             this.txtNombreUser = new System.Windows.Forms.TextBox();
             this.cmbCargo = new System.Windows.Forms.ComboBox();
@@ -41,6 +42,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnGenerarUsuario = new System.Windows.Forms.Button();
             this.btnBuscarUser = new System.Windows.Forms.Button();
             this.btnEliminarUser = new System.Windows.Forms.Button();
             this.btnEditarUser = new System.Windows.Forms.Button();
@@ -48,9 +50,10 @@
             this.dgvListaUsuarios = new System.Windows.Forms.DataGridView();
             this.btnAnterior = new System.Windows.Forms.Button();
             this.btnSiguiente = new System.Windows.Forms.Button();
-            this.btnGenerarUsuario = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaUsuarios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAgregarUser
@@ -60,7 +63,7 @@
             this.btnAgregarUser.FlatAppearance.BorderSize = 0;
             this.btnAgregarUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarUser.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarUser.Location = new System.Drawing.Point(96, 173);
+            this.btnAgregarUser.Location = new System.Drawing.Point(101, 173);
             this.btnAgregarUser.Name = "btnAgregarUser";
             this.btnAgregarUser.Size = new System.Drawing.Size(154, 43);
             this.btnAgregarUser.TabIndex = 0;
@@ -84,7 +87,7 @@
             "Administrador",
             "Agente",
             "Supervisor"});
-            this.cmbCargo.Location = new System.Drawing.Point(595, 91);
+            this.cmbCargo.Location = new System.Drawing.Point(569, 91);
             this.cmbCargo.Name = "cmbCargo";
             this.cmbCargo.Size = new System.Drawing.Size(188, 30);
             this.cmbCargo.TabIndex = 5;
@@ -118,7 +121,7 @@
             // txtDNIuser
             // 
             this.txtDNIuser.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDNIuser.Location = new System.Drawing.Point(595, 55);
+            this.txtDNIuser.Location = new System.Drawing.Point(569, 55);
             this.txtDNIuser.Name = "txtDNIuser";
             this.txtDNIuser.Size = new System.Drawing.Size(188, 30);
             this.txtDNIuser.TabIndex = 4;
@@ -147,7 +150,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(541, 60);
+            this.label4.Location = new System.Drawing.Point(515, 60);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(48, 22);
             this.label4.TabIndex = 13;
@@ -157,7 +160,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(515, 94);
+            this.label5.Location = new System.Drawing.Point(489, 94);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(74, 22);
             this.label5.TabIndex = 14;
@@ -168,6 +171,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.Teal;
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.btnGenerarUsuario);
             this.panel1.Controls.Add(this.btnBuscarUser);
             this.panel1.Controls.Add(this.btnEliminarUser);
@@ -186,8 +190,25 @@
             this.panel1.Controls.Add(this.txtPasswordUser);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(950, 236);
+            this.panel1.Size = new System.Drawing.Size(950, 243);
             this.panel1.TabIndex = 15;
+            // 
+            // btnGenerarUsuario
+            // 
+            this.btnGenerarUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGenerarUsuario.BackColor = System.Drawing.Color.Turquoise;
+            this.btnGenerarUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGenerarUsuario.FlatAppearance.BorderSize = 0;
+            this.btnGenerarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerarUsuario.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerarUsuario.Location = new System.Drawing.Point(808, 13);
+            this.btnGenerarUsuario.Name = "btnGenerarUsuario";
+            this.btnGenerarUsuario.Size = new System.Drawing.Size(130, 34);
+            this.btnGenerarUsuario.TabIndex = 19;
+            this.btnGenerarUsuario.Text = "Generar Usuario";
+            this.btnGenerarUsuario.UseVisualStyleBackColor = false;
+            this.btnGenerarUsuario.Click += new System.EventHandler(this.btnGenerarUsuario_Click);
             // 
             // btnBuscarUser
             // 
@@ -198,7 +219,7 @@
             this.btnBuscarUser.FlatAppearance.BorderSize = 0;
             this.btnBuscarUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarUser.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarUser.Location = new System.Drawing.Point(700, 173);
+            this.btnBuscarUser.Location = new System.Drawing.Point(713, 173);
             this.btnBuscarUser.Name = "btnBuscarUser";
             this.btnBuscarUser.Size = new System.Drawing.Size(154, 43);
             this.btnBuscarUser.TabIndex = 18;
@@ -244,7 +265,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(50, 9);
+            this.label6.Location = new System.Drawing.Point(12, 9);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(295, 32);
             this.label6.TabIndex = 15;
@@ -266,9 +287,9 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvListaUsuarios.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvListaUsuarios.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dgvListaUsuarios.Location = new System.Drawing.Point(105, 266);
+            this.dgvListaUsuarios.Location = new System.Drawing.Point(37, 268);
             this.dgvListaUsuarios.Name = "dgvListaUsuarios";
-            this.dgvListaUsuarios.Size = new System.Drawing.Size(758, 257);
+            this.dgvListaUsuarios.Size = new System.Drawing.Size(888, 268);
             this.dgvListaUsuarios.TabIndex = 16;
             // 
             // btnAnterior
@@ -307,22 +328,15 @@
             this.btnSiguiente.UseVisualStyleBackColor = false;
             this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
             // 
-            // btnGenerarUsuario
+            // pictureBox1
             // 
-            this.btnGenerarUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGenerarUsuario.BackColor = System.Drawing.Color.Turquoise;
-            this.btnGenerarUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGenerarUsuario.FlatAppearance.BorderSize = 0;
-            this.btnGenerarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGenerarUsuario.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenerarUsuario.Location = new System.Drawing.Point(808, 13);
-            this.btnGenerarUsuario.Name = "btnGenerarUsuario";
-            this.btnGenerarUsuario.Size = new System.Drawing.Size(130, 34);
-            this.btnGenerarUsuario.TabIndex = 19;
-            this.btnGenerarUsuario.Text = "Generar Usuario";
-            this.btnGenerarUsuario.UseVisualStyleBackColor = false;
-            this.btnGenerarUsuario.Click += new System.EventHandler(this.btnGenerarUsuario_Click);
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(27, 60);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(86, 92);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 26;
+            this.pictureBox1.TabStop = false;
             // 
             // FormUsuarios
             // 
@@ -340,6 +354,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaUsuarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -366,5 +381,6 @@
         private System.Windows.Forms.Button btnAnterior;
         private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.Button btnGenerarUsuario;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

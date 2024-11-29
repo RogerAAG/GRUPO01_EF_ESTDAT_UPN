@@ -38,7 +38,7 @@
             this.lblLlamada.AutoSize = true;
             this.lblLlamada.Font = new System.Drawing.Font("Century Gothic", 25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLlamada.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblLlamada.Location = new System.Drawing.Point(32, 27);
+            this.lblLlamada.Location = new System.Drawing.Point(12, 20);
             this.lblLlamada.Name = "lblLlamada";
             this.lblLlamada.Size = new System.Drawing.Size(446, 40);
             this.lblLlamada.TabIndex = 2;
@@ -46,12 +46,12 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(42)))), ((int)(((byte)(51)))));
+            this.panel1.BackColor = System.Drawing.Color.Teal;
             this.panel1.Controls.Add(this.lblLlamada);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(950, 115);
+            this.panel1.Size = new System.Drawing.Size(950, 101);
             this.panel1.TabIndex = 3;
             // 
             // FormTransferencias

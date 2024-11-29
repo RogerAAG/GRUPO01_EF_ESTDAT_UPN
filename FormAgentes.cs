@@ -20,13 +20,13 @@ namespace GRUPO01_EF_ESTDAT_UPN
        
         public FormAgentes(List<string> agentes, string llamada, FormPadre formPadre)
         {
-            InitializeComponent();
-            arbol = new ArbolAtencion();
-            nodoActual = arbol.Raiz;
-            llamadaEnCurso = llamada;
+            InitializeComponent();// Inicializar componentes
+            arbol = new ArbolAtencion();// Crear instancia del árbol
+            nodoActual = arbol.Raiz;// Iniciar en la raíz del árbol
+            llamadaEnCurso = llamada;// Guardar los datos de la llamada
             this.formPadre = formPadre; // Guardar la referencia del formulario padre
             // Llenar ComboBox con los agentes disponibles
-            cmbAgentes.DataSource = agentes;
+            cmbAgentes.DataSource = agentes;// Asignar la lista de agentes al ComboBox
             // Mostrar la primera pregunta
             lblPregunta.Text = nodoActual.Pregunta;
             // Mostrar información de la llamada
@@ -34,25 +34,25 @@ namespace GRUPO01_EF_ESTDAT_UPN
         }
         private void btnSi_Click(object sender, EventArgs e)
         {
-            AvanzarNodo(nodoActual.Si);
+            AvanzarNodo(nodoActual.Si);// Avanzar al nodo siguiente
         }
 
         private void btnNo_Click(object sender, EventArgs e)
         {
-            AvanzarNodo(nodoActual.No);
+            AvanzarNodo(nodoActual.No);// Avanzar al nodo siguiente
         }
 
-        private void AvanzarNodo(NodoArbol siguienteNodo)
+        private void AvanzarNodo(NodoArbol siguienteNodo)// Método para avanzar al siguiente nodo
         {
-            if (siguienteNodo != null)
+            if (siguienteNodo != null)// Verificar si hay un nodo siguiente
             {
-                nodoActual = siguienteNodo;
-                lblPregunta.Text = nodoActual.Pregunta;
+                nodoActual = siguienteNodo;// Avanzar al siguiente nodo
+                lblPregunta.Text = nodoActual.Pregunta;// Mostrar la pregunta
                 if (nodoActual.EsSolucion) // Considera agregar una propiedad EsSolucion
                 {
-                    MessageBox.Show(nodoActual.Pregunta);
-                    btnSi.Enabled = false;
-                    btnNo.Enabled = false;
+                    MessageBox.Show(nodoActual.Pregunta);// Mostrar solución
+                    btnSi.Enabled = false;// Deshabilitar botones
+                    btnNo.Enabled = false;// Deshabilitar botones
                 }
             }
             else
@@ -60,18 +60,18 @@ namespace GRUPO01_EF_ESTDAT_UPN
                 MessageBox.Show("Fin del árbol de atención. No hay más preguntas.");
             }
         }
-        private void btnLlamadaInterrumpida_Click(object sender, EventArgs e)
+        private void btnLlamadaInterrumpida_Click(object sender, EventArgs e)// Método para agregar una llamada interrumpida
         {
-            if (formPadre != null && formPadre.formulariosAbiertos.ContainsKey(nameof(FormLlamadas)))
+            if (formPadre != null && formPadre.formulariosAbiertos.ContainsKey(nameof(FormLlamadas)))// Verificar si el formulario padre tiene el formulario de llamadas
             {
-                var formLlamadas = (FormLlamadas)formPadre.formulariosAbiertos[nameof(FormLlamadas)];
-                var ultimaLlamada = formLlamadas.UltimaLlamadaAtendida;
+                var formLlamadas = (FormLlamadas)formPadre.formulariosAbiertos[nameof(FormLlamadas)];// Obtener el formulario de llamadas
+                var ultimaLlamada = formLlamadas.UltimaLlamadaAtendida;// Obtener la última llamada atendida
 
-                if (ultimaLlamada != null)
+                if (ultimaLlamada != null)// Verificar si hay una llamada atendida
                 {
                     // Crear instancia del FormInterrupciones si aún no existe
                     if (!formPadre.formulariosAbiertos.ContainsKey(nameof(FormInterrupciones)) ||
-                        formPadre.formulariosAbiertos[nameof(FormInterrupciones)].IsDisposed)
+                        formPadre.formulariosAbiertos[nameof(FormInterrupciones)].IsDisposed)// Verificar si el formulario está abierto
                     {
                         var formInterrupciones = new FormInterrupciones(string.Empty);
                         formInterrupciones.Owner = formPadre; // Set the Owner property
@@ -87,9 +87,11 @@ namespace GRUPO01_EF_ESTDAT_UPN
                         ultimaLlamada.Cliente,
                         ultimaLlamada.Tipo_Cliente,
                         ultimaLlamada.HoraLlamada
-                    );
+                    );// Agregar la llamada a la pila
 
-                    MessageBox.Show($"Llamada interrumpida agregada:\nTeléfono: {ultimaLlamada.Telefono_Cliente}\nCliente: {ultimaLlamada.Cliente}");
+                    MessageBox.Show($"Llamada interrumpida agregada:\nTeléfono: " +
+                        $"{ultimaLlamada.Telefono_Cliente}\nCliente: {ultimaLlamada.Cliente}");
+                    this.Close(); // Cerrar formulario al finalizar
                 }
                 else
                 {
@@ -115,18 +117,18 @@ namespace GRUPO01_EF_ESTDAT_UPN
             lblPregunta.Text = nodoActual.Pregunta; // Muestra la primera pregunta
             MessageBox.Show("El árbol se ha reiniciado.");
         }
-        private void ActualizarInterfaz()
+        private void ActualizarInterfaz()// Método para actualizar la interfaz
         {
-            lblPregunta.Text = nodoActual.Pregunta;
-            btnSi.Enabled = nodoActual.Si != null;
-            btnNo.Enabled = nodoActual.No != null;
+            lblPregunta.Text = nodoActual.Pregunta;// Mostrar la pregunta actual
+            btnSi.Enabled = nodoActual.Si != null;// Habilitar botón si hay un nodo siguiente
+            btnNo.Enabled = nodoActual.No != null;// Habilitar botón si hay un nodo siguiente
         }
 
         private void btnSeleccionarServicio_Click(object sender, EventArgs e)
         {
             var servicioSeleccionado = cmbServicios.SelectedItem?.ToString();  // Obtener el servicio seleccionado
 
-            if (string.IsNullOrEmpty(servicioSeleccionado))
+            if (string.IsNullOrEmpty(servicioSeleccionado))// Verificar si se seleccionó un servicio
             {
                 MessageBox.Show("Por favor, seleccione un servicio.");
                 return;
@@ -137,10 +139,10 @@ namespace GRUPO01_EF_ESTDAT_UPN
             lblPregunta.Text = nodoActual.Pregunta;          // Mostrar la primera pregunta
             ActualizarBotones();                             // Habilitar botones según el nodo
         }
-        private void ActualizarBotones(bool habilitar = true)
+        private void ActualizarBotones(bool habilitar = true)// Método para habilitar o deshabilitar los botones
         {
-            btnSi.Enabled = habilitar && nodoActual?.Si != null;
-            btnNo.Enabled = habilitar && nodoActual?.No != null;
+            btnSi.Enabled = habilitar && nodoActual?.Si != null;// Habilitar botón si hay un nodo siguiente
+            btnNo.Enabled = habilitar && nodoActual?.No != null;// Habilitar botón si hay un nodo siguiente
         }
     }
 }

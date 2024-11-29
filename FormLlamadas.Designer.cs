@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLlamadas));
             this.pnlTop = new System.Windows.Forms.Panel();
             this.lblCantidadLlamada = new System.Windows.Forms.Label();
             this.lblCantidadLLamadas = new System.Windows.Forms.Label();
@@ -48,20 +49,26 @@
             this.pnlEmpresa = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.dgvEmpresa = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pnlTop.SuspendLayout();
             this.pnlGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGeneral)).BeginInit();
             this.pnlEmpresa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpresa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTop
             // 
-            this.pnlTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(201)))), ((int)(((byte)(217)))));
+            this.pnlTop.BackColor = System.Drawing.Color.Teal;
+            this.pnlTop.Controls.Add(this.pictureBox2);
+            this.pnlTop.Controls.Add(this.pictureBox1);
+            this.pnlTop.Controls.Add(this.btnVaciar);
             this.pnlTop.Controls.Add(this.lblCantidadLlamada);
             this.pnlTop.Controls.Add(this.lblCantidadLLamadas);
             this.pnlTop.Controls.Add(this.btnSimular);
-            this.pnlTop.Controls.Add(this.btnVaciar);
             this.pnlTop.Controls.Add(this.label4);
             this.pnlTop.Controls.Add(this.txtCliente);
             this.pnlTop.Controls.Add(this.label3);
@@ -80,9 +87,10 @@
             // lblCantidadLlamada
             // 
             this.lblCantidadLlamada.AutoSize = true;
+            this.lblCantidadLlamada.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCantidadLlamada.Location = new System.Drawing.Point(658, 173);
             this.lblCantidadLlamada.Name = "lblCantidadLlamada";
-            this.lblCantidadLlamada.Size = new System.Drawing.Size(35, 13);
+            this.lblCantidadLlamada.Size = new System.Drawing.Size(45, 17);
             this.lblCantidadLlamada.TabIndex = 24;
             this.lblCantidadLlamada.Text = "label7";
             // 
@@ -96,11 +104,11 @@
             // 
             // btnSimular
             // 
-            this.btnSimular.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.btnSimular.BackColor = System.Drawing.Color.Turquoise;
             this.btnSimular.FlatAppearance.BorderSize = 0;
             this.btnSimular.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSimular.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSimular.Location = new System.Drawing.Point(559, 23);
+            this.btnSimular.Location = new System.Drawing.Point(747, 32);
             this.btnSimular.Name = "btnSimular";
             this.btnSimular.Size = new System.Drawing.Size(99, 29);
             this.btnSimular.TabIndex = 22;
@@ -114,9 +122,9 @@
             this.btnVaciar.FlatAppearance.BorderSize = 0;
             this.btnVaciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVaciar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVaciar.Location = new System.Drawing.Point(80, 159);
+            this.btnVaciar.Location = new System.Drawing.Point(111, 157);
             this.btnVaciar.Name = "btnVaciar";
-            this.btnVaciar.Size = new System.Drawing.Size(195, 37);
+            this.btnVaciar.Size = new System.Drawing.Size(166, 41);
             this.btnVaciar.TabIndex = 21;
             this.btnVaciar.Text = "Vaciar";
             this.btnVaciar.UseVisualStyleBackColor = false;
@@ -135,9 +143,9 @@
             // txtCliente
             // 
             this.txtCliente.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCliente.Location = new System.Drawing.Point(99, 105);
+            this.txtCliente.Location = new System.Drawing.Point(111, 108);
             this.txtCliente.Name = "txtCliente";
-            this.txtCliente.Size = new System.Drawing.Size(176, 24);
+            this.txtCliente.Size = new System.Drawing.Size(188, 24);
             this.txtCliente.TabIndex = 2;
             this.txtCliente.TextChanged += new System.EventHandler(this.txtCliente_TextChanged);
             // 
@@ -145,7 +153,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(26, 110);
+            this.label3.Location = new System.Drawing.Point(38, 113);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 19);
             this.label3.TabIndex = 18;
@@ -155,7 +163,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(15, 74);
+            this.label2.Location = new System.Drawing.Point(27, 77);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 19);
             this.label2.TabIndex = 17;
@@ -173,17 +181,17 @@
             "Empresarial"});
             this.cmbTipoCliente.Location = new System.Drawing.Point(454, 88);
             this.cmbTipoCliente.Name = "cmbTipoCliente";
-            this.cmbTipoCliente.Size = new System.Drawing.Size(204, 25);
+            this.cmbTipoCliente.Size = new System.Drawing.Size(188, 25);
             this.cmbTipoCliente.TabIndex = 3;
             this.cmbTipoCliente.SelectedIndexChanged += new System.EventHandler(this.cmbTipoCliente_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 24.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(385, 40);
+            this.label1.Size = new System.Drawing.Size(370, 39);
             this.label1.TabIndex = 15;
             this.label1.Text = "GESTOR DE LLAMADAS";
             // 
@@ -205,11 +213,10 @@
             // 
             this.btnAtenderLlamada.BackColor = System.Drawing.Color.PaleTurquoise;
             this.btnAtenderLlamada.FlatAppearance.BorderSize = 0;
-            this.btnAtenderLlamada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAtenderLlamada.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAtenderLlamada.Location = new System.Drawing.Point(324, 157);
+            this.btnAtenderLlamada.Location = new System.Drawing.Point(324, 150);
             this.btnAtenderLlamada.Name = "btnAtenderLlamada";
-            this.btnAtenderLlamada.Size = new System.Drawing.Size(314, 41);
+            this.btnAtenderLlamada.Size = new System.Drawing.Size(314, 55);
             this.btnAtenderLlamada.TabIndex = 5;
             this.btnAtenderLlamada.Text = "Atender Llamada";
             this.btnAtenderLlamada.UseVisualStyleBackColor = false;
@@ -218,15 +225,15 @@
             // txtTelefono
             // 
             this.txtTelefono.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefono.Location = new System.Drawing.Point(99, 69);
+            this.txtTelefono.Location = new System.Drawing.Point(111, 72);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(176, 24);
+            this.txtTelefono.Size = new System.Drawing.Size(188, 24);
             this.txtTelefono.TabIndex = 1;
             this.txtTelefono.TextChanged += new System.EventHandler(this.txtTelefono_TextChanged);
             // 
             // pnlGeneral
             // 
-            this.pnlGeneral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(51)))), ((int)(((byte)(60)))));
+            this.pnlGeneral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(201)))), ((int)(((byte)(217)))));
             this.pnlGeneral.Controls.Add(this.label5);
             this.pnlGeneral.Controls.Add(this.dgvGeneral);
             this.pnlGeneral.Dock = System.Windows.Forms.DockStyle.Left;
@@ -290,6 +297,27 @@
             this.dgvEmpresa.Size = new System.Drawing.Size(448, 368);
             this.dgvEmpresa.TabIndex = 1;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(392, 11);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(56, 49);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 25;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(341, 158);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(41, 40);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 26;
+            this.pictureBox2.TabStop = false;
+            // 
             // FormLlamadas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -309,6 +337,8 @@
             this.pnlEmpresa.ResumeLayout(false);
             this.pnlEmpresa.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpresa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -335,5 +365,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblCantidadLLamadas;
         private System.Windows.Forms.Label lblCantidadLlamada;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

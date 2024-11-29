@@ -35,15 +35,15 @@ namespace GRUPO01_EF_ESTDAT_UPN
         // Método para construir el árbol de decisiones según el servicio seleccionado
         private void ConstruirArbol()
         {
-            switch (ServicioSeleccionado.Trim().ToLower())
+            switch (ServicioSeleccionado)
             {
-                case "servicio de internet":
+                case "Servicio de Internet":
                     ConstruirArbolInternet();
                     break;
-                case "tv por cable":
+                case "TV por Cable":
                     ConstruirArbolTV();
                     break;
-                case "telefonia fija":
+                case "Telefonia Fija":
                     ConstruirArbolTelefonia();
                     break;
                 default:

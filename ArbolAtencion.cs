@@ -37,13 +37,13 @@ namespace GRUPO01_EF_ESTDAT_UPN
         {
             switch (ServicioSeleccionado.Trim().ToLower())
             {
-                case "Servicio de internet":
+                case "servicio de internet":
                     ConstruirArbolInternet();
                     break;
-                case "TV por Cable":
+                case "tv por cable":
                     ConstruirArbolTV();
                     break;
-                case "Telefonia Fija":
+                case "telefonia fija":
                     ConstruirArbolTelefonia();
                     break;
                 default:

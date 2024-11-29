@@ -61,7 +61,7 @@
             // 
             this.lblPregunta.AutoSize = true;
             this.lblPregunta.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPregunta.Location = new System.Drawing.Point(282, 217);
+            this.lblPregunta.Location = new System.Drawing.Point(213, 229);
             this.lblPregunta.Name = "lblPregunta";
             this.lblPregunta.Size = new System.Drawing.Size(94, 32);
             this.lblPregunta.TabIndex = 1;
@@ -169,14 +169,15 @@
             // 
             // cmbServicios
             // 
+            this.cmbServicios.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbServicios.FormattingEnabled = true;
             this.cmbServicios.Items.AddRange(new object[] {
-            "Servicio de internet",
-            "TV por Cable",
-            "Telefonía Fija"});
-            this.cmbServicios.Location = new System.Drawing.Point(360, 144);
+            "servicio de internet",
+            "tv por cable",
+            "telefonia fija"});
+            this.cmbServicios.Location = new System.Drawing.Point(338, 142);
             this.cmbServicios.Name = "cmbServicios";
-            this.cmbServicios.Size = new System.Drawing.Size(197, 21);
+            this.cmbServicios.Size = new System.Drawing.Size(197, 24);
             this.cmbServicios.TabIndex = 8;
             // 
             // btnSeleccionarServicio

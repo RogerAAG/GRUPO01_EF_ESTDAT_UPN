@@ -25,18 +25,18 @@ namespace GRUPO01_EF_ESTDAT_UPN
             // Si se pasa una llamada, agregarla directamente a la pila
             if (!string.IsNullOrEmpty(llamada))
             {
-                string[] datos = llamada.Split(',');
-                if (datos.Length == 4)
+                string[] datos = llamada.Split(',');// Separar los datos de la llamada
+                if (datos.Length == 4)// Verificar que se hayan pasado los 4 datos
                 {
                     DateTime fecha;
-                    if (DateTime.TryParseExact(datos[3], "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out fecha))
+                    if (DateTime.TryParseExact(datos[3], "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out fecha))//Verifica que la fecha sea valida
                     {
-                        Pila.Push(datos[0], datos[1], datos[2], fecha);
+                        Pila.Push(datos[0], datos[1], datos[2], fecha);// Agregar la llamada a la pila
                         Pila.ActualizarDataGrid();
                     }
                     else
                     {
-                        MessageBox.Show("Invalid date format.");
+                        MessageBox.Show("Formato de Fecha Invalido.");
                     }
                 }
             }
@@ -63,6 +63,7 @@ namespace GRUPO01_EF_ESTDAT_UPN
             if (llamada != null)
             {
                 MessageBox.Show($"Llamada eliminada:\nTeléfono: {llamada.Telefono}\nCliente: {llamada.Cliente}");
+                string servicio = llamada.Servicio;
                 List<string> agentes = new List<string>(); // Crear una lista de agentes
                 FormAgentes formAgentes = new FormAgentes(agentes, llamada.Telefono, padre); // Pasar los argumentos requeridos
 

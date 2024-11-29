@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GRUPO01_EF_ESTDAT_UPN
@@ -19,8 +14,8 @@ namespace GRUPO01_EF_ESTDAT_UPN
             InitializeComponent();
             InicializarGrafo();
 
-            // Suscribir el evento Paint
-            this.Paint += new PaintEventHandler(FormTransferencias_Paint);
+            // Suscribir el evento Paint al panel
+            panelGrafo.Paint += new PaintEventHandler(PanelGrafo_Paint);
         }
 
         private void InicializarGrafo()
@@ -42,21 +37,25 @@ namespace GRUPO01_EF_ESTDAT_UPN
             grafo.AgregarArista(ti, a, 5);
         }
 
-        private void FormTransferencias_Paint(object sender, PaintEventArgs e)
+        private void PanelGrafo_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
             Pen pen = new Pen(Color.Blue, 2);
-            Font font = new Font("Arial", 10);
+            Font font = new Font("Century Gothic", 11);
             Brush brush = Brushes.Black;
+
+            // Tamaño y posición ajustados al panel
+            var ancho = panelGrafo.Width;
+            var alto = panelGrafo.Height;
 
             var posiciones = new Dictionary<string, Point>
             {
-                { "Atención al Cliente", new Point(100, 50) },
-                { "Facturación", new Point(50, 150) },
-                { "Soporte Técnico", new Point(150, 150) },
-                { "Recursos Humanos", new Point(50, 250) },
-                { "TI Interno", new Point(150, 250) },
-                { "Administración", new Point(100, 350) }
+                { "Atención al Cliente", new Point(ancho / 2, alto / 8) },
+                { "Facturación", new Point(ancho / 4, alto / 3) },
+                { "Soporte Técnico", new Point(3 * ancho / 4, alto / 3) },
+                { "Recursos Humanos", new Point(ancho / 4, 2 * alto / 3) },
+                { "TI Interno", new Point(3 * ancho / 4, 2 * alto / 3) },
+                { "Administración", new Point(ancho / 2, 7 * alto / 8) }
             };
 
             // Dibujar conexiones
@@ -82,3 +81,4 @@ namespace GRUPO01_EF_ESTDAT_UPN
         }
     }
 }
+

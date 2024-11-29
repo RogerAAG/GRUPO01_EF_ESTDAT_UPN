@@ -91,6 +91,7 @@
     <Compile Include="FormUsuarios.Designer.cs">
       <DependentUpon>FormUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="GrafoTransferencias.cs" />
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
     </Compile>

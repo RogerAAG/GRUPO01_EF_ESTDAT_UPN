@@ -54,5 +54,16 @@ namespace GRUPO01_EF_ESTDAT_UPN
                 Pregunta = pregunta;
             }
         }
+        public class NodoGrafo
+        {
+            public string Departamento { get; set; }
+            public Dictionary<NodoGrafo, int> Conexiones { get; set; }
+
+            public NodoGrafo(string departamento)
+            {
+                Departamento = departamento;
+                Conexiones = new Dictionary<NodoGrafo, int>();
+            }
+        }
     }
 }

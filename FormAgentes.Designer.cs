@@ -66,6 +66,9 @@
             // 
             // lblPregunta
             // 
+            this.lblPregunta.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPregunta.AutoSize = true;
             this.lblPregunta.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPregunta.Location = new System.Drawing.Point(213, 229);
@@ -90,6 +93,7 @@
             // 
             // btnNo
             // 
+            this.btnNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNo.BackColor = System.Drawing.Color.PaleTurquoise;
             this.btnNo.FlatAppearance.BorderSize = 0;
             this.btnNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -104,6 +108,7 @@
             // 
             // btnFinalizarLlamada
             // 
+            this.btnFinalizarLlamada.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnFinalizarLlamada.BackColor = System.Drawing.Color.PaleTurquoise;
             this.btnFinalizarLlamada.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFinalizarLlamada.Location = new System.Drawing.Point(617, 517);
@@ -116,6 +121,7 @@
             // 
             // btnLlamadaInterrumpida
             // 
+            this.btnLlamadaInterrumpida.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnLlamadaInterrumpida.BackColor = System.Drawing.Color.PaleTurquoise;
             this.btnLlamadaInterrumpida.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLlamadaInterrumpida.Location = new System.Drawing.Point(105, 517);
@@ -162,6 +168,8 @@
             // 
             // btnReiniciar
             // 
+            this.btnReiniciar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnReiniciar.BackColor = System.Drawing.Color.PaleTurquoise;
             this.btnReiniciar.FlatAppearance.BorderSize = 0;
             this.btnReiniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -176,6 +184,8 @@
             // 
             // cmbServicios
             // 
+            this.cmbServicios.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbServicios.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbServicios.FormattingEnabled = true;
             this.cmbServicios.Items.AddRange(new object[] {
@@ -189,6 +199,7 @@
             // 
             // btnSeleccionarServicio
             // 
+            this.btnSeleccionarServicio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSeleccionarServicio.BackColor = System.Drawing.Color.PaleTurquoise;
             this.btnSeleccionarServicio.FlatAppearance.BorderSize = 0;
             this.btnSeleccionarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -203,6 +214,7 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(406, 469);
             this.pictureBox2.Name = "pictureBox2";
@@ -213,6 +225,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(51, 517);
             this.pictureBox1.Name = "pictureBox1";
@@ -223,6 +236,7 @@
             // 
             // pictureBox3
             // 
+            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(851, 517);
             this.pictureBox3.Name = "pictureBox3";

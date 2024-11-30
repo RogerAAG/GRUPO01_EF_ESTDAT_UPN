@@ -30,10 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLlamadas));
             this.pnlTop = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnVaciar = new System.Windows.Forms.Button();
             this.lblCantidadLlamada = new System.Windows.Forms.Label();
             this.lblCantidadLLamadas = new System.Windows.Forms.Label();
             this.btnSimular = new System.Windows.Forms.Button();
-            this.btnVaciar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txtCliente = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,15 +51,13 @@
             this.pnlEmpresa = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.dgvEmpresa = new System.Windows.Forms.DataGridView();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pnlTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGeneral)).BeginInit();
             this.pnlEmpresa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpresa)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTop
@@ -83,6 +83,41 @@
             this.pnlTop.Name = "pnlTop";
             this.pnlTop.Size = new System.Drawing.Size(950, 218);
             this.pnlTop.TabIndex = 0;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(341, 158);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(41, 40);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 26;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(392, 11);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(56, 49);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 25;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnVaciar
+            // 
+            this.btnVaciar.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.btnVaciar.FlatAppearance.BorderSize = 0;
+            this.btnVaciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVaciar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVaciar.Location = new System.Drawing.Point(111, 157);
+            this.btnVaciar.Name = "btnVaciar";
+            this.btnVaciar.Size = new System.Drawing.Size(166, 41);
+            this.btnVaciar.TabIndex = 21;
+            this.btnVaciar.Text = "Vaciar";
+            this.btnVaciar.UseVisualStyleBackColor = false;
+            this.btnVaciar.Click += new System.EventHandler(this.btnVaciar_Click);
             // 
             // lblCantidadLlamada
             // 
@@ -115,20 +150,6 @@
             this.btnSimular.Text = "Simular";
             this.btnSimular.UseVisualStyleBackColor = false;
             this.btnSimular.Click += new System.EventHandler(this.btnSimular_Click);
-            // 
-            // btnVaciar
-            // 
-            this.btnVaciar.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.btnVaciar.FlatAppearance.BorderSize = 0;
-            this.btnVaciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVaciar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVaciar.Location = new System.Drawing.Point(111, 157);
-            this.btnVaciar.Name = "btnVaciar";
-            this.btnVaciar.Size = new System.Drawing.Size(166, 41);
-            this.btnVaciar.TabIndex = 21;
-            this.btnVaciar.Text = "Vaciar";
-            this.btnVaciar.UseVisualStyleBackColor = false;
-            this.btnVaciar.Click += new System.EventHandler(this.btnVaciar_Click);
             // 
             // label4
             // 
@@ -236,7 +257,6 @@
             this.pnlGeneral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(201)))), ((int)(((byte)(217)))));
             this.pnlGeneral.Controls.Add(this.label5);
             this.pnlGeneral.Controls.Add(this.dgvGeneral);
-            this.pnlGeneral.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlGeneral.Location = new System.Drawing.Point(0, 218);
             this.pnlGeneral.Name = "pnlGeneral";
             this.pnlGeneral.Size = new System.Drawing.Size(477, 417);
@@ -269,7 +289,6 @@
             this.pnlEmpresa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(51)))), ((int)(((byte)(60)))));
             this.pnlEmpresa.Controls.Add(this.label6);
             this.pnlEmpresa.Controls.Add(this.dgvEmpresa);
-            this.pnlEmpresa.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlEmpresa.Location = new System.Drawing.Point(477, 218);
             this.pnlEmpresa.Name = "pnlEmpresa";
             this.pnlEmpresa.Size = new System.Drawing.Size(473, 417);
@@ -297,27 +316,6 @@
             this.dgvEmpresa.Size = new System.Drawing.Size(448, 368);
             this.dgvEmpresa.TabIndex = 1;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(392, 11);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(56, 49);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 25;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(341, 158);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(41, 40);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 26;
-            this.pictureBox2.TabStop = false;
-            // 
             // FormLlamadas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -331,14 +329,14 @@
             this.Text = "FormLlamadas";
             this.pnlTop.ResumeLayout(false);
             this.pnlTop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlGeneral.ResumeLayout(false);
             this.pnlGeneral.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGeneral)).EndInit();
             this.pnlEmpresa.ResumeLayout(false);
             this.pnlEmpresa.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpresa)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }

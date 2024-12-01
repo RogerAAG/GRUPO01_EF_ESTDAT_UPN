@@ -16,7 +16,7 @@ namespace GRUPO01_EF_ESTDAT_UPN
     {
         public FormPadre()
         {
-            InitializeComponent();
+            InitializeComponent();//Inicializa los componentes
         }
 
 
@@ -31,16 +31,16 @@ namespace GRUPO01_EF_ESTDAT_UPN
                 formulariosAbiertos[formulario.GetType().Name] = formulario;
             }
 
-            Form fh = formulariosAbiertos[formulario.GetType().Name];
+            Form fh = formulariosAbiertos[formulario.GetType().Name];//Obtener el formulario del diccionario
 
             // Limpiar el panel y cargar el formulario hijo
-            if (this.pnlContenedor.Controls.Count > 0)
-                this.pnlContenedor.Controls.RemoveAt(0);
+            if (this.pnlContenedor.Controls.Count > 0)//Si hay un formulario cargado
+                this.pnlContenedor.Controls.RemoveAt(0);//Elimina el formulario cargado
 
-            fh.TopLevel = false;
-            fh.Dock = DockStyle.Fill;
-            this.pnlContenedor.Controls.Add(fh);
-            this.pnlContenedor.Tag = fh;
+            fh.TopLevel = false;//Indica que no es un formulario de nivel superior
+            fh.Dock = DockStyle.Fill;//Rellena el panel
+            this.pnlContenedor.Controls.Add(fh);//Agrega el formulario al panel
+            this.pnlContenedor.Tag = fh;//Establece el formulario como etiqueta del panel
             fh.Show();//Muestra el formulario hijo
         }
         //CONFIGURACION PARA APERTURA DE FORMULARIOS EN PANEL CONTENEDOR
@@ -71,7 +71,19 @@ namespace GRUPO01_EF_ESTDAT_UPN
         }
         private void btnTransferencias_Click(object sender, EventArgs e)
         {
-            AbrirFormHijo(new FormTransferencias());//Carga el formulario de transferencias
+            // Obtener la referencia de FormLlamadas desde el diccionario
+            if (formulariosAbiertos.ContainsKey("FormLlamadas") && formulariosAbiertos["FormLlamadas"] is FormLlamadas formLlamadas)
+            {
+                FormTransferencias formTransferencias = new FormTransferencias
+                {
+                    FormLlamadasReferencia = formLlamadas // Pasar referencia de FormLlamadas
+                };
+                AbrirFormHijo(formTransferencias); // Abrir el formulario
+            }
+            else
+            {
+                MessageBox.Show("Debe abrir primero el formulario de Llamadas para poder ver la última llamada atendida.");
+            }
         }
 
         //ASPECTO DEL FORMULARIO

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace GRUPO01_EF_ESTDAT_UPN
@@ -8,6 +9,9 @@ namespace GRUPO01_EF_ESTDAT_UPN
     public partial class FormTransferencias : Form
     {
         private GrafoTransferencias grafo;
+        public FormLlamadas FormLlamadasReferencia { get; set; }
+        private int tiempoRestante;
+
 
         public FormTransferencias()//Constructor
         {
@@ -16,6 +20,7 @@ namespace GRUPO01_EF_ESTDAT_UPN
 
             // Suscribir el evento Paint al panel
             panelGrafo.Paint += new PaintEventHandler(PanelGrafo_Paint);
+         
         }
 
         private void InicializarGrafo()//Inicializa el grafo
@@ -77,6 +82,81 @@ namespace GRUPO01_EF_ESTDAT_UPN
             {
                 g.FillEllipse(Brushes.Blue, pos.Value.X - 15, pos.Value.Y - 15, 30, 30);//Dibuja el nodo
                 g.DrawString(pos.Key, font, Brushes.White, pos.Value.X - 40, pos.Value.Y - 25);//Dibuja el nombre del nodo
+            }
+        }
+
+        private void FormTransferencias_Load(object sender, EventArgs e)
+        {
+            if (FormLlamadasReferencia != null && FormLlamadasReferencia.UltimaLlamadaAtendida != null)
+            {
+                lblUltimaLlamadaInfo.Text = $"{FormLlamadasReferencia.UltimaLlamadaAtendida.Telefono_Cliente}, " +
+                                            $"{FormLlamadasReferencia.UltimaLlamadaAtendida.Cliente}, " +
+                                            $"{FormLlamadasReferencia.UltimaLlamadaAtendida.Tipo_Cliente}, " +
+                                            $"Hora: {FormLlamadasReferencia.UltimaLlamadaAtendida.HoraLlamada:HH:mm:ss}";
+            }
+            else
+            {
+                lblUltimaLlamadaInfo.Text = "No hay información de la última llamada atendida.";
+            }
+
+            cmbAreas.Items.AddRange(tiemposPorArea.Keys.ToArray());
+            cmbAreas.SelectedIndex = 0; // Selecciona el primer elemento por defecto
+        }
+        private Dictionary<string, int> tiemposPorArea = new Dictionary<string, int>
+        {
+              { "Atención al Cliente", 2 },
+              { "Facturación", 3 },
+              { "Soporte Técnico", 4 },
+              { "Recursos Humanos", 5 },
+              { "TI Interno", 3 },
+              { "Administración", 5 }
+        };
+
+        private void btnTransferir_Click(object sender, EventArgs e)
+        {
+            // Validar que haya una selección válida en el ComboBox
+            if (cmbAreas.SelectedItem == null)
+            {
+                MessageBox.Show("Por favor, selecciona un área de destino.");
+                return;
+            }
+
+            string areaSeleccionada = cmbAreas.SelectedItem.ToString();
+
+            // Buscar el tiempo asociado al área seleccionada
+            if (tiemposPorArea.TryGetValue(areaSeleccionada, out int tiempo))
+            {
+                tiempoRestante = tiempo * 60; // Convertir minutos a segundos
+                lblTiempoTransferencia.Text = $"Tiempo restante para transferir a {areaSeleccionada}: {tiempo} minutos.";
+
+                // Iniciar el temporizador
+                timerTransferencia.Start();
+            }
+            else
+            {
+                lblTiempoTransferencia.Text = "El área seleccionada no tiene un tiempo asignado.";
+            }
+        }
+
+        private void timerTransferencia_Tick(object sender, EventArgs e)
+        {
+            if (tiempoRestante > 0)
+            {
+                tiempoRestante--;
+
+                // Convertir segundos restantes a formato de minutos:segundos
+                int minutos = tiempoRestante / 60;
+                int segundos = tiempoRestante % 60;
+                lblTiempoTransferencia.Text = $"Tiempo restante: {minutos:D2}:{segundos:D2}";
+            }
+            else
+            {
+                timerTransferencia.Stop(); // Detener el temporizador
+
+                // Mostrar mensaje final
+                string areaSeleccionada = cmbAreas.SelectedItem.ToString();
+                lblTiempoTransferencia.Text = $"Es su turno. Bienvenido a {areaSeleccionada}!";
+                MessageBox.Show($"Es su turno. Bienvenido a {areaSeleccionada}!");
             }
         }
     }

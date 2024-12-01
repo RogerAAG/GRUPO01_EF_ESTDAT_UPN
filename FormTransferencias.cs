@@ -11,7 +11,6 @@ namespace GRUPO01_EF_ESTDAT_UPN
         private GrafoTransferencias grafo;//Instancia de la clase GrafoTransferencias
         public FormLlamadas FormLlamadasReferencia { get; set; }// Propiedad para guardar la referencia al formulario de llamadas
         private int tiempoRestante;// Tiempo restante para la transferencia
-
         public FormTransferencias()//Constructor
         {
             InitializeComponent();
@@ -19,7 +18,6 @@ namespace GRUPO01_EF_ESTDAT_UPN
 
             // Suscribir el evento Paint al panel
             panelGrafo.Paint += new PaintEventHandler(PanelGrafo_Paint);
-         
         }
 
         private void InicializarGrafo()//Inicializa el grafo
@@ -40,7 +38,6 @@ namespace GRUPO01_EF_ESTDAT_UPN
             grafo.AgregarArista(rh, a, 5);
             grafo.AgregarArista(ti, a, 5);
         }
-
         private void PanelGrafo_Paint(object sender, PaintEventArgs e)//Dibuja el grafo
         {
             Graphics g = e.Graphics;//Instancia de la clase Graphics
@@ -106,9 +103,9 @@ namespace GRUPO01_EF_ESTDAT_UPN
               { "Atención al Cliente", 2 },
               { "Facturación", 3 },
               { "Soporte Técnico", 4 },
-              { "Recursos Humanos", 5 },
-              { "TI Interno", 3 },
-              { "Administración", 5 }
+              { "Recursos Humanos", 7 },
+              { "TI Interno", 7 },
+              { "Administración", 12 }
         };
 
         private void btnTransferir_Click(object sender, EventArgs e)

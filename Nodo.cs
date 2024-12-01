@@ -37,32 +37,32 @@ namespace GRUPO01_EF_ESTDAT_UPN
             public string Cliente { get; set; }// Nombre del cliente
             public string TipoCliente { get; set; }// Tipo de cliente
             public DateTime HoraLlamada { get; set; }// Hora de la llamada
-            public string Servicio { get; set; }
+            public string Servicio { get; set; }// Servicio interrumpido
             public NodoInterrupciones Siguiente { get; set; } // Apunta al siguiente nodo en la pila
         }
         //NODO ARBOL DE ATENCION
         public class NodoArbol
         {
-            public string Pregunta { get; set; }
-            public NodoArbol Si { get; set; }
-            public NodoArbol No { get; set; }
+            public string Pregunta { get; set; } // Pregunta del nodo
+            public NodoArbol Si { get; set; }// Nodo hijo si
+            public NodoArbol No { get; set; }// Nodo hijo no
             public bool EsSolucion => Si == null && No == null; // Identifica si es nodo final
-            public NodoArbol Raiz { get; private set; }
+            public NodoArbol Raiz { get; private set; }// Nodo raiz
 
-            public NodoArbol(string pregunta)
+            public NodoArbol(string pregunta)// Constructor de la clase
             {
-                Pregunta = pregunta;
+                Pregunta = pregunta;// Inicializa la pregunta
             }
         }
         public class NodoGrafo
         {
-            public string Departamento { get; set; }
-            public Dictionary<NodoGrafo, int> Conexiones { get; set; }
+            public string Departamento { get; set; }// Nombre del Area
+            public Dictionary<NodoGrafo, int> Conexiones { get; set; }// Conexiones del Area
 
-            public NodoGrafo(string departamento)
+            public NodoGrafo(string departamento)// Constructor de la clase
             {
-                Departamento = departamento;
-                Conexiones = new Dictionary<NodoGrafo, int>();
+                Departamento = departamento;// Inicializa el nombre del Area
+                Conexiones = new Dictionary<NodoGrafo, int>();// Inicializa las conexiones del Area
             }
         }
     }

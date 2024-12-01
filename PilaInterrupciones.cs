@@ -16,14 +16,14 @@ namespace GRUPO01_EF_ESTDAT_UPN
 
         public PilaInterrupciones(DataGridView dgvPila)
         {
-            this.dgvPila = dgvPila;
-            cima = null;
+            this.dgvPila = dgvPila;// Asigna el DataGridView
+            cima = null;// Inicializa la cima de la pila
         }
 
         // Método para agregar una llamada a la pila
-        public void Push(string telefono, string cliente, string tipoCliente, DateTime horaLlamada)
+        public void Push(string telefono, string cliente, string tipoCliente, DateTime horaLlamada)// Agrega un nuevo nodo a la pila
         {
-            NodoInterrupciones nuevoNodo = new NodoInterrupciones
+            NodoInterrupciones nuevoNodo = new NodoInterrupciones// Crea un nuevo nodo
             {
                 Telefono = telefono,
                 Cliente = cliente,
@@ -37,18 +37,18 @@ namespace GRUPO01_EF_ESTDAT_UPN
         }
 
         // Método para eliminar la llamada en la cima de la pila
-        public NodoInterrupciones Pop()
+        public NodoInterrupciones Pop()// Elimina el nodo en la cima de la pila
         {
             if (cima == null)
             {
                 MessageBox.Show("La pila está vacía.");
-                return null;
+                return null;// La pila está vacía
             }
 
-            NodoInterrupciones nodoEliminado = cima;
+            NodoInterrupciones nodoEliminado = cima;// Guarda el nodo a eliminar
             cima = cima.Siguiente; // Actualiza la cima al siguiente nodo
             
-            return nodoEliminado;
+            return nodoEliminado;// Retorna el nodo eliminado
         }
 
         // Método para actualizar el DataGridView
@@ -57,14 +57,14 @@ namespace GRUPO01_EF_ESTDAT_UPN
             dgvPila.Rows.Clear(); // Limpia las filas actuales del DataGridView
             NodoInterrupciones actual = cima;
 
-            while (actual != null)
+            while (actual != null)// Recorre la pila
             {
                 dgvPila.Rows.Add(
                     actual.Telefono,
                     actual.Cliente,
                     actual.TipoCliente,
                     actual.HoraLlamada.ToString("HH:mm:ss")
-                );
+                );// Agrega una fila al DataGridView con los datos del nodo actual
 
                 actual = actual.Siguiente; // Avanza al siguiente nodo
             }
@@ -73,23 +73,23 @@ namespace GRUPO01_EF_ESTDAT_UPN
         // Método para vaciar la pila
         public void Vaciar()
         {
-            cima = null;
+            cima = null;// Elimina la cima de la pila
             ActualizarDataGrid();
         }
 
         // Método para contar las llamadas en la pila
-        public int Contar()
+        public int Contar()// Cuenta los nodos de la pila
         {
-            int contador = 0;
-            NodoInterrupciones actual = cima;
+            int contador = 0;// Inicializa el contador
+            NodoInterrupciones actual = cima;// Nodo actual
 
-            while (actual != null)
+            while (actual != null)// Recorre la pila
             {
-                contador++;
-                actual = actual.Siguiente;
+                contador++;// Incrementa el contador
+                actual = actual.Siguiente;// Avanza al siguiente nodo
             }
 
-            return contador;
+            return contador;// Retorna el contador
         }
     }
 }

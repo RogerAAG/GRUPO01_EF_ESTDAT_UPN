@@ -9,13 +9,13 @@ namespace GRUPO01_EF_ESTDAT_UPN
 {
     public class ListaUsuario
     {
-        private NodoUsuario ini;
-        private NodoUsuario fin;
+        private NodoUsuario ini;//Nodo inicial
+        private NodoUsuario fin;//Nodo final
         private static int contadorID = 1; // Contador para IDs
         //AGREGAR USUARIO
         public void AgregarUsuario(string nombre, string dni, string telefono, string cargo, string contraseña)
         {
-            NodoUsuario nuevoNodo = new NodoUsuario
+            NodoUsuario nuevoNodo = new NodoUsuario//Nuevo nodo
             {
                 ID = contadorID++, // Asignar ID y luego incrementar
                 Nombre = nombre,
@@ -35,23 +35,23 @@ namespace GRUPO01_EF_ESTDAT_UPN
             {
                 fin.sig = nuevoNodo;// Si no, el último nodo apunta al nuevo nodo
             }
-            fin = nuevoNodo;
+            fin = nuevoNodo;// El nuevo nodo es el último
         }
         //BUSCAR USUARIO
-        public NodoUsuario BuscarUsuario(string dni)
+        public NodoUsuario BuscarUsuario(string dni)//Buscar usuario por DNI
         {
-            NodoUsuario actual = ini;
+            NodoUsuario actual = ini;//Nodo actual es el primero
             while (actual != null)//Mientras el nodo actual no sea nulo
             {
                 if (actual.DNI == dni) return actual;
                 actual = actual.sig;// Avanzar al siguiente nodo
             }
-            return null;
+            return null;//Retornar nulo si no se encuentra el usuario
         }
         //ELIMINAR USUARIO
         public void EliminarUsuario(string dni)
         {
-            NodoUsuario actual = ini;
+            NodoUsuario actual = ini;//Nodo actual es el primero
 
             while (actual != null)//Mientras el nodo actual no sea nulo
             {
@@ -81,7 +81,7 @@ namespace GRUPO01_EF_ESTDAT_UPN
             }
         }
         //recursividad
-        public List<NodoUsuario> ObtenerUsuarios()
+        public List<NodoUsuario> ObtenerUsuarios()//Obtener lista de usuarios
         {
             List<NodoUsuario> usuarios = new List<NodoUsuario>();//Lista de usuarios
             NodoUsuario actual = ini;//Nodo actual es el primero

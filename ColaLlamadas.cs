@@ -16,13 +16,13 @@ namespace GRUPO01_EF_ESTDAT_UPN
         //Constructor
         public ColaLlamadas()
         {
-            ini = null;
-            fin = null;
+            ini = null;//El inicio apunta null
+            fin = null;//El fin apunta null
         }
         //AGREGAR LLAMADAS
         public void AgregarLlamada(string Telefono_Cliente, string Cliente, string Tipo_Cliente, DateTime HoraLlamada)
         {
-            NodoColaLlamadas nuevo = new NodoColaLlamadas
+            NodoColaLlamadas nuevo = new NodoColaLlamadas//Nuevo nodo de llamada
             {
                 Telefono_Cliente = Telefono_Cliente,
                 Cliente = Cliente,
@@ -61,7 +61,7 @@ namespace GRUPO01_EF_ESTDAT_UPN
                 fin = null;
             }
             // Retornar el nodo atendido
-            return nodoAtendido;
+            return nodoAtendido;//Retorna el nodo atendido
         }
         public void Vaciar()//Vacia la cola
         {

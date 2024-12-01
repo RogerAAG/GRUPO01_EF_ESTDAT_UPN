@@ -16,7 +16,7 @@ namespace GRUPO01_EF_ESTDAT_UPN
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormPadre());
+            Application.Run(new FormLogin());
         }
     }
 }

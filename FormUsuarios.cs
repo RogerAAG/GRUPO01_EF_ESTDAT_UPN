@@ -63,14 +63,14 @@ namespace GRUPO01_EF_ESTDAT_UPN
         //Evento Eliminar Usuario
         private void btnEliminarUser_Click(object sender, EventArgs e)
         {
-            listaUsuarios.EliminarUsuario(txtDNIuser.Text);
+            listaUsuarios.EliminarUsuario(txtDNIuser.Text);//
             MessageBox.Show("Usuario eliminado correctamente.");
             ActualizarDataGrid();
         }
         //Evento Buscar Usuario
         private void btnBuscarUser_Click(object sender, EventArgs e)
         {
-            NodoUsuario usuario = listaUsuarios.BuscarUsuario(txtDNIuser.Text);
+            NodoUsuario usuario = listaUsuarios.BuscarUsuario(txtDNIuser.Text);//BUSCAR USUARIO
             if (usuario != null)
             {
                 MessageBox.Show($"Usuario encontrado: {usuario.Nombre}");

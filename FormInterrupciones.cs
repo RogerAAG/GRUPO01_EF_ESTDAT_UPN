@@ -15,12 +15,12 @@ namespace GRUPO01_EF_ESTDAT_UPN
     public partial class FormInterrupciones : Form
     {
         
-        public PilaInterrupciones Pila { get; private set; }
-        public FormInterrupciones(string llamada)
+        public PilaInterrupciones Pila { get; private set; }// Pila de interrupciones
+        public FormInterrupciones(string llamada)// Constructor de la clase
         {
-            InitializeComponent();
-            ConfigurarDataGridView();
-            Pila = new PilaInterrupciones(dgvPila);
+            InitializeComponent();// Inicializa los componentes
+            ConfigurarDataGridView();// Configura el DataGridView
+            Pila = new PilaInterrupciones(dgvPila);// Inicializa la pila
 
             // Si se pasa una llamada, agregarla directamente a la pila
             if (!string.IsNullOrEmpty(llamada))
@@ -57,17 +57,17 @@ namespace GRUPO01_EF_ESTDAT_UPN
         }
         public void btnDevolverLlamada_Click(object sender, EventArgs e)
         {
-            var llamada = Pila.Pop();
-            FormPadre padre = this.Owner as FormPadre;
+            var llamada = Pila.Pop();// Elimina la llamada en la cima de la pila
+            FormPadre padre = this.Owner as FormPadre;// Obtener el formulario padre
 
-            if (llamada != null)
+            if (llamada != null)// Si se eliminó una llamada
             {
                 MessageBox.Show($"Llamada eliminada:\nTeléfono: {llamada.Telefono}\nCliente: {llamada.Cliente}");
-                string servicio = llamada.Servicio;
+                string servicio = llamada.Servicio;// Obtener el servicio interrumpido
                 List<string> agentes = new List<string>(); // Crear una lista de agentes
                 FormAgentes formAgentes = new FormAgentes(agentes, llamada.Telefono, padre); // Pasar los argumentos requeridos
 
-                formAgentes.Show();
+                formAgentes.Show();// Mostrar el formulario de agentes
             }
             else
             {

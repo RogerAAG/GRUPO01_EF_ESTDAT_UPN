@@ -18,7 +18,7 @@ namespace GRUPO01_EF_ESTDAT_UPN
         private string llamadaEnCurso; // Datos de la llamada actual
         private FormPadre formPadre;// Referencia al formulario padre
        
-        public FormAgentes(List<string> agentes, string llamada, FormPadre formPadre)
+        public FormAgentes(List<string> agentes, string llamada, FormPadre formPadre)// Constructor
         {
             InitializeComponent();// Inicializar componentes
             arbol = new ArbolAtencion();// Crear instancia del árbol

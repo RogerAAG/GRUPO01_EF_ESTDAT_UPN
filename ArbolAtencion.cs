@@ -9,11 +9,11 @@ namespace GRUPO01_EF_ESTDAT_UPN
 {
     internal class ArbolAtencion
     {
-        public NodoArbol Raiz;
-        public NodoArbol Actual;
-        public string ServicioSeleccionado { get; private set; }
+        public NodoArbol Raiz;// Raíz del árbol
+        public NodoArbol Actual;// Nodo actual en el árbol
+        public string ServicioSeleccionado { get; private set; }// Servicio seleccionado
 
-        public ArbolAtencion()
+        public ArbolAtencion()//Constructor  
         {
 
             Raiz = new NodoArbol("Default question");
@@ -22,9 +22,9 @@ namespace GRUPO01_EF_ESTDAT_UPN
         // Método para seleccionar el servicio y construir el árbol correspondiente
         public void SeleccionarServicio(string servicio)
         {
-            if (string.IsNullOrWhiteSpace(servicio) ||
+            if (string.IsNullOrWhiteSpace(servicio) ||// Verificar si el servicio es válido
             !new List<string> { "Servicio de internet", "TV por Cable", "Telefonia Fija" }
-            .Contains(servicio.Trim(), StringComparer.OrdinalIgnoreCase))
+            .Contains(servicio.Trim(), StringComparer.OrdinalIgnoreCase))// Ignorar mayúsculas y minúsculas
             {
                 throw new ArgumentException("Servicio no reconocido");
             }
@@ -35,23 +35,23 @@ namespace GRUPO01_EF_ESTDAT_UPN
         // Método para construir el árbol de decisiones según el servicio seleccionado
         private void ConstruirArbol()
         {
-            switch (ServicioSeleccionado)
+            switch (ServicioSeleccionado)//Construir el árbol según el servicio seleccionado
             {
-                case "Servicio de Internet":
+                case "Servicio de Internet"://Construir el árbol para el servicio de Internet
                     ConstruirArbolInternet();
                     break;
-                case "TV por Cable":
+                case "TV por Cable"://Construir el árbol para el servicio de TV por cable
                     ConstruirArbolTV();
                     break;
-                case "Telefonia Fija":
+                case "Telefonia Fija"://Construir el árbol para el servicio de telefonía fija
                     ConstruirArbolTelefonia();
                     break;
                 default:
-                    throw new ArgumentException("Servicio no reconocido");
+                    throw new ArgumentException("Servicio no reconocido");//Lanzar excepción si el servicio no es reconocido
             }
         }
 
-        private void ConstruirArbolInternet()
+        private void ConstruirArbolInternet()//Método para arbol de decisiones
         {
             Raiz = new NodoArbol("¿El router está encendido?");
             Raiz.Si = new NodoArbol("¿Hay luz en los indicadores del router?");
@@ -63,7 +63,7 @@ namespace GRUPO01_EF_ESTDAT_UPN
             Raiz.Si.Si.Si = new NodoArbol("Solución: Comuníquese con soporte técnico.");
             Raiz.Si.Si.No = new NodoArbol("Solución: Revise los cables.");
 
-            var nodoIntermitente = new NodoArbol("¿El servicio de Internet es intermitente?");
+            var nodoIntermitente = new NodoArbol("¿El servicio de Internet es intermitente?");//Nodo para servicio intermitente
             nodoIntermitente.Si = new NodoArbol("Solución: Reinicie el router.");
             nodoIntermitente.No = new NodoArbol("¿Hay interrupciones solo en ciertos dispositivos?");
             nodoIntermitente.No.Si = new NodoArbol("Solución: Revise la configuración del Wi-Fi.");
@@ -72,7 +72,7 @@ namespace GRUPO01_EF_ESTDAT_UPN
             Raiz.Si.Si.Si.Si = nodoIntermitente;
         }
 
-        private void ConstruirArbolTV()
+        private void ConstruirArbolTV()//Método para arbol de decisiones
         {
             Raiz = new NodoArbol("¿La pantalla muestra 'Sin Señal'?");
             Raiz.Si = new NodoArbol("¿Está conectado el cable HDMI?");
@@ -97,12 +97,12 @@ namespace GRUPO01_EF_ESTDAT_UPN
             Actual = Raiz; // Vuelve al inicio del árbol
         }
 
-        public (string texto, bool habilitarSi, bool habilitarNo) ActualizarPregunta()
+        public (string texto, bool habilitarSi, bool habilitarNo) ActualizarPregunta()//Método para actualizar la pregunta
         {
             if (Actual == null)
-                return ("Fin del Árbol: Decisión Tomada.", false, false);
+                return ("Fin del Árbol: Decisión Tomada.", false, false);//Mensaje de fin del árbol
 
-            return (Actual.Pregunta, Actual.Si != null, Actual.No != null);
+            return (Actual.Pregunta, Actual.Si != null, Actual.No != null);//Retorna la pregunta actual
         }
     }
 }

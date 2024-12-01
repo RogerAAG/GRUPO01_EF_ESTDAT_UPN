@@ -39,15 +39,15 @@ namespace GRUPO01_EF_ESTDAT_UPN
                 return;//Salir del método
             }
 
-            string Telefono_Cliente = txtTelefono.Text;
-            string Cliente = txtCliente.Text;
-            string Tipo_Cliente = cmbTipoCliente.Text;
+            string Telefono_Cliente = txtTelefono.Text;//Obtener el teléfono del cliente
+            string Cliente = txtCliente.Text;//Obtener el nombre del cliente
+            string Tipo_Cliente = cmbTipoCliente.Text;//Obtener el tipo de cliente
 
-            if (Tipo_Cliente == "Cliente General")
+            if (Tipo_Cliente == "Cliente General")//Validar el tipo de cliente
             {
                 objColaGeneral.AgregarLlamada(Telefono_Cliente, Cliente, Tipo_Cliente, DateTime.Now);//Agregar llamada a la cola general
             }
-            else if (Tipo_Cliente == "Empresarial")
+            else if (Tipo_Cliente == "Empresarial")//Validar el tipo de cliente
             {
                 objColaEmpresa.AgregarLlamada(Telefono_Cliente, Cliente, Tipo_Cliente, DateTime.Now);//Agregar llamada a la cola empresarial
             }
@@ -66,16 +66,16 @@ namespace GRUPO01_EF_ESTDAT_UPN
         {
             NodoColaLlamadas llamadaAtendida = null;//Inicializar la llamada atendida en nulo
 
-            if (!objColaEmpresa.EstaVacia())
+            if (!objColaEmpresa.EstaVacia())//Verificación
             {
                 llamadaAtendida = objColaEmpresa.AtenderLlamada();//Atender llamada de la cola empresarial
             }
-            else if (!objColaGeneral.EstaVacia())
+            else if (!objColaGeneral.EstaVacia())//Verificación
             {
                 llamadaAtendida = objColaGeneral.AtenderLlamada();//Atender llamada cola General
             }
 
-            if (llamadaAtendida != null)
+            if (llamadaAtendida != null)//
             {
                 UltimaLlamadaAtendida = llamadaAtendida; // Guardar la última llamada atendida
 

@@ -8,10 +8,9 @@ namespace GRUPO01_EF_ESTDAT_UPN
 {
     public partial class FormTransferencias : Form
     {
-        private GrafoTransferencias grafo;
-        public FormLlamadas FormLlamadasReferencia { get; set; }
-        private int tiempoRestante;
-
+        private GrafoTransferencias grafo;//Instancia de la clase GrafoTransferencias
+        public FormLlamadas FormLlamadasReferencia { get; set; }// Propiedad para guardar la referencia al formulario de llamadas
+        private int tiempoRestante;// Tiempo restante para la transferencia
 
         public FormTransferencias()//Constructor
         {
@@ -87,7 +86,7 @@ namespace GRUPO01_EF_ESTDAT_UPN
 
         private void FormTransferencias_Load(object sender, EventArgs e)
         {
-            if (FormLlamadasReferencia != null && FormLlamadasReferencia.UltimaLlamadaAtendida != null)
+            if (FormLlamadasReferencia != null && FormLlamadasReferencia.UltimaLlamadaAtendida != null)//Si hay una llamada atendida
             {
                 lblUltimaLlamadaInfo.Text = $"{FormLlamadasReferencia.UltimaLlamadaAtendida.Telefono_Cliente}, " +
                                             $"{FormLlamadasReferencia.UltimaLlamadaAtendida.Cliente}, " +
@@ -99,10 +98,10 @@ namespace GRUPO01_EF_ESTDAT_UPN
                 lblUltimaLlamadaInfo.Text = "No hay información de la última llamada atendida.";
             }
 
-            cmbAreas.Items.AddRange(tiemposPorArea.Keys.ToArray());
+            cmbAreas.Items.AddRange(tiemposPorArea.Keys.ToArray());//Agrega las áreas al ComboBox
             cmbAreas.SelectedIndex = 0; // Selecciona el primer elemento por defecto
         }
-        private Dictionary<string, int> tiemposPorArea = new Dictionary<string, int>
+        private Dictionary<string, int> tiemposPorArea = new Dictionary<string, int>//Diccionario de tiempos por área
         {
               { "Atención al Cliente", 2 },
               { "Facturación", 3 },
@@ -130,7 +129,7 @@ namespace GRUPO01_EF_ESTDAT_UPN
                 lblTiempoTransferencia.Text = $"Tiempo restante para transferir a {areaSeleccionada}: {tiempo} minutos.";
 
                 // Iniciar el temporizador
-                timerTransferencia.Start();
+                timerTransferencia.Start();//Inicia el temporizador
             }
             else
             {
@@ -140,23 +139,23 @@ namespace GRUPO01_EF_ESTDAT_UPN
 
         private void timerTransferencia_Tick(object sender, EventArgs e)
         {
-            if (tiempoRestante > 0)
+            if (tiempoRestante > 0)//Si hay tiempo restante
             {
-                tiempoRestante--;
+                tiempoRestante--;//Decrementa el tiempo restante
 
                 // Convertir segundos restantes a formato de minutos:segundos
-                int minutos = tiempoRestante / 60;
-                int segundos = tiempoRestante % 60;
-                lblTiempoTransferencia.Text = $"Tiempo restante: {minutos:D2}:{segundos:D2}";
+                int minutos = tiempoRestante / 60;//Obtiene los minutos
+                int segundos = tiempoRestante % 60;//Obtiene los segundos
+                lblTiempoTransferencia.Text = $"Tiempo restante: {minutos:D2}:{segundos:D2}";//Muestra el tiempo restante
             }
             else
             {
                 timerTransferencia.Stop(); // Detener el temporizador
 
                 // Mostrar mensaje final
-                string areaSeleccionada = cmbAreas.SelectedItem.ToString();
-                lblTiempoTransferencia.Text = $"Es su turno. Bienvenido a {areaSeleccionada}!";
-                MessageBox.Show($"Es su turno. Bienvenido a {areaSeleccionada}!");
+                string areaSeleccionada = cmbAreas.SelectedItem.ToString();//   Obtiene el área seleccionada
+                lblTiempoTransferencia.Text = $"Es su turno. Bienvenido a {areaSeleccionada}!";//Muestra el mensaje
+                MessageBox.Show($"Es su turno. Bienvenido a {areaSeleccionada}!");//Muestra el mensaje
             }
         }
     }
